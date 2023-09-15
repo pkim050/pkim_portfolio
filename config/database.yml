@@ -58,6 +58,8 @@ development:
 test:
   <<: *default
   host: localhost
+  username: <%= ENV[“POSTGRES_USER”] %>
+  password: <%= ENV[“POSTGRES_PASSWORD”] %>
   database: pkim_portfolio_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
