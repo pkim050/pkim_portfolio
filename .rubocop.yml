@@ -9,3 +9,6 @@ AllCops:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
