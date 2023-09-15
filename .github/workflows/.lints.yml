@@ -25,6 +25,5 @@ jobs:
       - name: rspec
         run: |
           bin/rails db:create
-          bin/rails db:migrate
-          bin/rails db:environment:set RAILS_ENV=test
+          bin/rails db:migrate RAILS_ENV=test
           bundle exec rspec
