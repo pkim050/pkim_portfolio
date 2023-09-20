@@ -1,0 +1,6 @@
+height: 500
+menubar: true
+toolbar:
+  - undo redo | blocks | bold italic strikethrough underline | alignleft aligncenter alignright | bullist numlist outdent indent | link openlink blockquote image | fontfamily fontsize forecolor | removeformat | help
+plugins:
+  - insertdatetime lists media table code help wordcount link image

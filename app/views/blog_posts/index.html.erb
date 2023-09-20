@@ -1,0 +1,12 @@
+<h1>Blog posts</h1>
+
+<div id="blog_posts" class="container mx-auto px-60 m-20 divide-y divide-[#bf04ff]">
+  <% @records.each do |blog_post| %>
+    <%= render blog_post %>
+  <% end %>
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+</div>
+
+<% if can? :create, @blog_posts %>
+  <%= link_to "New blog post", new_blog_post_path %>
+<% end %>

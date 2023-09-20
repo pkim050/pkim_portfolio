@@ -67,6 +67,14 @@ gem 'simple_form'
 
 gem 'pry'
 
+gem 'pry-remote'
+
+gem 'cancancan'
+
+gem 'tinymce-rails'
+
+gem 'pagy'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

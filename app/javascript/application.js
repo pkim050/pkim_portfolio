@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "./add_jquery"
+import 'flowbite'
+import "flowbite/dist/flowbite.turbo.js"
 
 function hamburger() {
   const burger = document.querySelectorAll('.navbar-burger');

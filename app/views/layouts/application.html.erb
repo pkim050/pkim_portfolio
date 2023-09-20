@@ -10,9 +10,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= favicon_link_tag asset_path('pkim_icon.ico') %>
+
+    <%= tinymce_assets %>
+    <script type="text/javascript" src="/assets/tinymce.js"></script>
   </head>
 
   <body class="bg-gray-400">
+    <%= render partial: "layouts/notifications", locals: { message: flash } %>
     <%= render "layouts/navbar" %>
     <%= yield %>
   </body>

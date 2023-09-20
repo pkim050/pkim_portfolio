@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_233856) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_210832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blog_comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.bigint "blog_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "parent_id"
+    t.index ["blog_post_id"], name: "index_blog_comments_on_blog_post_id"
+    t.index ["user_id"], name: "index_blog_comments_on_user_id"
+  end
+
+  create_table "blog_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_blog_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,4 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_233856) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "blog_comments", "blog_posts"
+  add_foreign_key "blog_comments", "users"
+  add_foreign_key "blog_posts", "users"
 end

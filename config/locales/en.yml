@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  blog_posts:
+    create:
+      success: 'Blog post was successfully created.'
+    update:
+      success: 'Blog post was successfully updated.'
+    destroy:
+      success: 'Blog post was successfully destroyed.'
