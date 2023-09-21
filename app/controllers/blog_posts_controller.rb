@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BlogPostsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_blog_post, only: %i[show edit update destroy]
   include Pagy::Backend
 
@@ -64,6 +65,7 @@ class BlogPostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_blog_post
     @blog_post = BlogPost.find(params[:id])
+    @user = current_user
   end
 
   # Only allow a list of trusted parameters through.

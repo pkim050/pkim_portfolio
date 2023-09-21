@@ -15,7 +15,7 @@
     <%= f.text_area :body, class: "tinymce border-2 border-gray-500", rows: 40, cols: 120 %>
     <%= tinymce %>
 
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="form-actions contents">

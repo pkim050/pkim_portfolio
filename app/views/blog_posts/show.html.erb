@@ -3,21 +3,23 @@
 
   <%= link_to "Back to blog posts", blog_posts_path %>
 
-  <div class="max-w-sm rounded overflow-hidden shadow-lg"> # place this card blow the post body.
-    <div class="px-6 py-4">
+  <div class="container rounded overflow-hidden shadow-lg"> # place this card blow the post body.
+    <div class="px-5 py-4">
       <p class="font-bold text-xl mb-2">Comments</p>
       <%= simple_form_for([@blog_post, @blog_post.blog_comments.build]) do |f| %>
         <div class="form-group">
           <%= f.label 'New comment' %></br>
-          <%= f.text_area :body, class: 'form-control' %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.text_area :body, class: 'form-control w-full h-24' %>
+          <%= f.hidden_field :user_id, :value => current_user&.id %>
         </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 
-  <%= render @blog_post.blog_comments %>
+  <div id="blog_comments">
+    <%= render @blog_post.blog_comments.order('created_at desc') %>
+  </div>
 
   <% if can? :create, @blog_posts %>
     <div>

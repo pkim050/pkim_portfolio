@@ -5,6 +5,8 @@ class Ability
 
   def initialize(user)
     can :read, BlogPost, public: true
+    can :read, BlogComment, public: true
+    can %i[create update destroy], BlogComment if user
 
     return unless user&.admin?
 

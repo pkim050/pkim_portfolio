@@ -1,15 +1,20 @@
 <% unless !blog_comment&.persisted? %>
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="container rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
-      <%= blog_comment.body %>
+      <strong><%= blog_comment.user.username %></strong> · <%= distance_of_time_in_words_to_now(blog_comment.created_at) %> ago
       </br>
-      <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_post, parent_id: blog_comment.id), remote: true, data: { type: :js } %>
+      <%= simple_format blog_comment.body %>
+      </br>
+      <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_post, parent_id: blog_comment.id), remote: true %>
     </div>
   </div>
-  <% if blog_comment.replies.any? %>
-    <% blog_comment.replies.each do |reply| %> 
-      <%= render partial: 'blog_comments/reply', locals: { reply: reply } %>
+  <div id="replies">
+    <% if blog_comment.replies.any? %>
+      <% blog_comment.replies.each do |reply| %> 
+        <%= render partial: 'blog_comments/reply', locals: { reply: reply } %>
+      <% end %>
     <% end %>
-  <% end %>
-  <div id="reply-form-<%= blog_comment.id %>"></div>
+  </div>
+  <div id="reply-form-<%= blog_comment.id %>">
+  </div>
 <% end %>

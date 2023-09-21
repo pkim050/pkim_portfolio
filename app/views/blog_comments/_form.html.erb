@@ -1,22 +1,17 @@
-<%= simple_form_for([@blog_post, @blog_comment]) do |f| %>
-  <% if blog_comment.errors.any? %>
-    <% flash.now[:error] = blog_comment.errors.full_messages %>
-    <% blog_comment.errors.full_messages.each do |error| %>
-      <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
+<%= turbo_frame_tag "new_blog_comment" do %>
+  <%= simple_form_for([@blog_post, @blog_post.blog_comments.build]) do |f| %>
+    <% if blog_comment.errors.any? %>
+      <% flash.now[:error] = blog_comment.errors.full_messages %>
+      <% blog_comment.errors.full_messages.each do |error| %>
+        <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
+      <% end %>
+      </br>
     <% end %>
-    </br>
+    <div class="form-group">
+      <%= f.label 'New comment' %></br>
+      <%= f.text_area :body, class: 'form-control w-full h-24' %>
+      <%= f.hidden_field :user_id, :value => current_user&.id %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>
-
-  <div class="form-inputs mb-4">
-    <%= f.label 'Body', class: "text-xl text-pink-300" %> <span class="text-red-500">*</span></br>
-    <%= f.text_area :body, class: "tinymce border-2 border-gray-500", rows: 40, cols: 120 %>
-    <%= tinymce %>
-
-    <%= f.hidden_field :blog_post, :value => blog_comment&.blog_post_id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-
-  <div class="form-actions contents">
-    <%= f.button :submit, class: "p-3 bg-green-500 hover:bg-[#bf04ff] text-black font-bold transition duration-200" %>
-  </div>
 <% end %>
