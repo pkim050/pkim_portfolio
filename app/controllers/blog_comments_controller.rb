@@ -13,7 +13,14 @@ class BlogCommentsController < ApplicationController
 
   def new
     @blog_post = BlogPost.find(params[:blog_post_id])
-    @blog_comment = @blog_post.blog_comments.new(parent_id: params[:parent_id])
+    @blog_comment = @blog_post.blog_comments.find_by(id: [params[:parent_id]])
+    @reply = @blog_comment.replies.new(parent_id: params[:parent_id])
+
+    respond_to do |format|
+      format.html { redirect_to blog_post_url(@blog_post) }
+      format.turbo_stream { render :new, locals: { reply: @reply } }
+      format.json { render :show, status: :ok, location: @blog_post }
+    end
   end
 
   # GET /blog_comments/1/edit
@@ -25,7 +32,11 @@ class BlogCommentsController < ApplicationController
     @blog_comment = @blog_post.blog_comments.new(blog_comment_params)
 
     respond_to do |format|
-      if @blog_comment.save
+      if @blog_comment.save && @blog_comment.parent_id
+        format.html { redirect_to blog_post_url(@blog_post), notice: 'Reply was successfully created.' } # changed the redirect to @post
+        format.turbo_stream { render :create_reply, locals: { blog_comment: @blog_comment } }
+        format.json { render :show, status: :ok, location: @blog_post }
+      elsif @blog_comment.save && @blog_comment.parent_id.nil?
         format.html { redirect_to blog_post_url(@blog_post), notice: 'Comment was successfully created.' } # changed the redirect to @post
         format.turbo_stream { render :create, locals: { blog_comment: @blog_comment } }
         format.json { render :show, status: :ok, location: @blog_post }

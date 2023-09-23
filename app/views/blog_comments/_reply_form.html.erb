@@ -1,19 +1,19 @@
-<%= turbo_frame_tag "new_reply" %>
-  <div class="card ml-5">
-    <div class="card-body">
-      <%= simple_form_for([@blog_post, @blog_comment]) do |f| %>
-        <% if blog_comment.errors.any? %>
-          <% flash.now[:error] = blog_comment.errors.full_messages %>
-          <% blog_comment.errors.full_messages.each do |error| %>
+<%= turbo_frame_tag "new_reply" do %>
+  <div>
+    <div class="px-5 py-4">
+      <%= simple_form_for([@blog_post, @blog_comment.replies.build]) do |f| %>
+        <% if reply.errors.any? %>
+          <% flash.now[:error] = reply.errors.full_messages %>
+          <% reply.errors.full_messages.each do |error| %>
             <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
           <% end %>
           </br>
         <% end %>
         <div class="form-group">
-          <%= f.label 'Reply' %>
+          <%= f.label 'Reply', class: "font-bold text-xl mb-2" %>
           <%= f.text_area :body, class: 'form-control w-full h-24' %>
           <%= f.hidden_field :parent_id, value: @blog_comment.id %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :user_id, value: current_user&.id %>
         </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
         <%= link_to 'Cancel', blog_post_path(@blog_post), class: 'btn btn-secondary' %>

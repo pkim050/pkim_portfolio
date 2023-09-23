@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "new_blog_comment" do %>
+  <%= render partial: "reply_form", locals: { blog_comment: @blog_comment } %>
+<% end %>

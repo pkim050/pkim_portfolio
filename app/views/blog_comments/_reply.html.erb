@@ -1,5 +1,15 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
   <div class="px-6 py-4">
-    <%= reply.body %>
+    <strong><%= reply.user.username %></strong> · <%= distance_of_time_in_words_to_now(reply.created_at) %> ago
+    <%= simple_format reply.body %>
+    </br>
+    <%= link_to 'Reply', new_blog_post_blog_comment_path(reply.blog_post, parent_id: reply.id), data: { turbo_stream: "reply-#{reply.id}" } %>
   </div>
+</div>
+<div id="replies-<%= reply.id %>">
+  <% if reply.replies.any? %>
+    <% reply.replies.order('created_at desc').each do |nested_reply| %> 
+      <%= render partial: 'blog_comments/reply', locals: { reply: nested_reply } %>
+    <% end %>
+  <% end %>
 </div>

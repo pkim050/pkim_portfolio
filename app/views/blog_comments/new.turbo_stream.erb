@@ -1,0 +1,9 @@
+<% if @blog_comment.parent_id %>
+  <%= turbo_stream.prepend "replies-#{@reply.id}" do %>
+    <%= render partial: "reply_form", locals: { reply: @reply } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "replies-#{@reply.parent_id}" do %>
+    <%= render partial: "reply_form", locals: { reply: @reply } %>
+  <% end %>
+<% end%>

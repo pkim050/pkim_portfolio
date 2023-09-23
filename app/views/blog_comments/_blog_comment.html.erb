@@ -1,20 +1,18 @@
-<% unless !blog_comment&.persisted? %>
+<% unless blog_comment&.parent_id || !blog_comment&.persisted? %>
   <div class="container rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
       <strong><%= blog_comment.user.username %></strong> · <%= distance_of_time_in_words_to_now(blog_comment.created_at) %> ago
       </br>
       <%= simple_format blog_comment.body %>
       </br>
-      <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_post, parent_id: blog_comment.id), remote: true %>
+      <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_post, parent_id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" } %>
     </div>
   </div>
-  <div id="replies">
+  <div id="replies-<%= blog_comment.id %>">
     <% if blog_comment.replies.any? %>
-      <% blog_comment.replies.each do |reply| %> 
+      <% blog_comment.replies.order('created_at desc').each do |reply| %> 
         <%= render partial: 'blog_comments/reply', locals: { reply: reply } %>
       <% end %>
     <% end %>
-  </div>
-  <div id="reply-form-<%= blog_comment.id %>">
   </div>
 <% end %>
