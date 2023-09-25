@@ -37,3 +37,11 @@ en:
       success: 'Blog post was successfully updated.'
     destroy:
       success: 'Blog post was successfully destroyed.'
+  blog_comments:
+    create:
+      success_comment: 'Blog Comment was successfully created.'
+      success_reply: 'Reply was successfully created.'
+    update:
+      success: 'Blog comment was successfully updated.'
+    destroy:
+      success: 'Blog comment was successfully deleted.'

@@ -13,7 +13,7 @@ class BlogCommentsController < ApplicationController
 
   def new
     @blog_post = BlogPost.find(params[:blog_post_id])
-    @blog_comment = @blog_post.blog_comments.find_by(id: [params[:parent_id]])
+    @blog_comment = @blog_post.blog_comments.find_by(id: params[:parent_id])
     @reply = @blog_comment.replies.new(parent_id: params[:parent_id])
 
     respond_to do |format|
@@ -24,7 +24,13 @@ class BlogCommentsController < ApplicationController
   end
 
   # GET /blog_comments/1/edit
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_reply') }
+      format.turbo_stream { render :edit, locals: { blog_comment: @blog_comment } }
+      format.json { render :show, status: :ok, location: @blog_post }
+    end
+  end
 
   # POST /blog_comments or /blog_comments.json
   def create
@@ -33,16 +39,23 @@ class BlogCommentsController < ApplicationController
 
     respond_to do |format|
       if @blog_comment.save && @blog_comment.parent_id
-        format.html { redirect_to blog_post_url(@blog_post), notice: 'Reply was successfully created.' } # changed the redirect to @post
+        format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_reply') }
         format.turbo_stream { render :create_reply, locals: { blog_comment: @blog_comment } }
         format.json { render :show, status: :ok, location: @blog_post }
       elsif @blog_comment.save && @blog_comment.parent_id.nil?
-        format.html { redirect_to blog_post_url(@blog_post), notice: 'Comment was successfully created.' } # changed the redirect to @post
+        format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_comment') }
         format.turbo_stream { render :create, locals: { blog_comment: @blog_comment } }
         format.json { render :show, status: :ok, location: @blog_post }
-      else
+      elsif !@blog_comment.save && @blog_comment.parent_id.nil?
         format.html { redirect_to blog_post_url(@blog_post), notice: @blog_comment.errors.full_messages }
-        format.turbo_stream { render :error_blog_comment, status: :unprocessable_entity, locals: { blog_comment: @blog_comment } }
+        format.turbo_stream {
+          render :error_blog_comment, status: :unprocessable_entity, locals: { blog_comment: @blog_comment }
+        }
+        format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
+      else
+        @reply = @blog_comment
+        format.html { redirect_to blog_post_url(@blog_post), notice: @blog_comment.errors.full_messages }
+        format.turbo_stream { render :error_reply, status: :unprocessable_entity, locals: { reply: @reply } }
         format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
       end
     end
@@ -50,13 +63,14 @@ class BlogCommentsController < ApplicationController
 
   # PATCH/PUT /blog_comments/1 or /blog_comments/1.json
   def update
-    @blog_comment = BlogComment.find(params[:id])
     respond_to do |format|
       if @blog_comment.update(blog_comment_params)
-        format.html { redirect_to blog_post_url(@blog_post), notice: 'update successful' }
+        format.html { redirect_to blog_post_url(@blog_post), notice: t('.success') }
+        format.turbo_stream { render :update, locals: { blog_comment: @blog_comment } }
         format.json { render :show, status: :ok, location: @blog_post }
       else
         format.html { redirect_to blog_post_url(@blog_post), notice: @blog_comment.errors.full_messages }
+        format.turbo_stream { render :error_reply, status: :unprocessable_entity, locals: { blog_comment: @blog_comment }}
         format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
       end
     end
@@ -64,13 +78,22 @@ class BlogCommentsController < ApplicationController
 
   # DELETE /blog_comments/1 or /blog_comments/1.json
   def destroy
-    @blog_comment.destroy
+    @blog_comment.body = if @user.id == @blog_comment.user_id
+                           'Comment deleted by user'
+                         else
+                           'Comment deleted by admin'
+                         end
 
     respond_to do |format|
-      format.html { redirect_to blog_comment_url, notice: 'destroy successful' }
-      format.json { head :no_content }
+      if @blog_comment.save
+        format.html { redirect_to blog_comment_url, notice: t('.success') }
+        format.turbo_stream { render :destroy, locals: { blog_comment: @blog_comment } }
+        format.json { render :show, status: :ok, location: @blog_post }
+      end
     end
   end
+
+  def cancel_new_form; end
 
   private
 

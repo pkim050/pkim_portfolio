@@ -1,0 +1,18 @@
+<%= turbo_stream.replace "comment-#{@blog_comment.id}" do %>
+  <%= turbo_frame_tag "edit_blog_comment" do %>
+    <%= simple_form_for([@blog_post, @blog_comment]) do |f| %>
+      <% if blog_comment.errors.any? %>
+        <% flash.now[:error] = blog_comment.errors.full_messages %>
+        <% blog_comment.errors.full_messages.each do |error| %>
+          <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
+        <% end %>
+        </br>
+      <% end %>
+      <div class="form-group">
+        <%= f.label 'Edit comment' %></br>
+        <%= f.text_area :body, class: 'form-control w-full h-24' %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+<% end %>

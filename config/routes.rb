@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'pages#home'
+
+  delete '/blog_posts/:id/blog_comments/:id/cancel_new_form', to: 'blog_comments#cancel_new_form'
 end

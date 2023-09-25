@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "new_reply" do %>
+<%= turbo_frame_tag "new-reply-#{@reply.parent_id}" do %>
   <div>
     <div class="px-5 py-4">
       <%= simple_form_for([@blog_post, @blog_comment.replies.build]) do |f| %>
@@ -16,7 +16,7 @@
           <%= f.hidden_field :user_id, value: current_user&.id %>
         </div>
         <%= f.submit 'Submit', class: 'btn btn-primary' %>
-        <%= link_to 'Cancel', blog_post_path(@blog_post), class: 'btn btn-secondary' %>
+        <%= link_to 'Cancel', "/blog_posts/#{@blog_post.id}/blog_comments/#{@reply.parent_id}/cancel_new_form", class: 'btn btn-secondary', data: { turbo_stream: "new-reply-#{@reply.parent_id}", turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
     </div>
   </div>
