@@ -1,3 +1,51 @@
-<%= turbo_stream.replace "edit_blog_comment" do %>
-  <%= simple_format blog_comment.body, id: "comment-#{blog_comment.id}" %>
+<%= turbo_stream.replace "comment-#{@blog_comment.id}" do %>
+  <% if @blog_comment.parent_id %>
+    <div class="rounded overflow-hidden shadow-lg", id="comment-<%= @blog_comment.id %>">
+      <div class="px-6 py-4">
+        <div class="flex">
+          <strong><%= @blog_comment.user.username %></strong> · <%= distance_of_time_in_words_to_now(@blog_comment.created_at) %> ago
+          <% if @blog_comment.created_at != @blog_comment.updated_at %>
+            <em class="ml-auto">Last Updated: <%= distance_of_time_in_words_to_now(@blog_comment.updated_at) %> ago</em>
+          <% end %>
+        </div>
+        <%= simple_format @blog_comment.body, id: "comment-body-#{@blog_comment.id}" %>
+        </br>
+        <div class="flex">
+          <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_comment.blog_post, parent_id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}" }, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
+          <div class="ml-auto">
+            <% if can? :edit, @blog_comment %>
+              <%= link_to 'Edit', edit_blog_post_blog_comment_path(@blog_comment.blog_post, id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}" }, class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <% end %>
+            <% if can? :destroy, @blog_comment %>
+              <%= link_to 'Delete', blog_post_blog_comment_path(@blog_comment.blog_post, id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}", turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete your comment?' }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="container rounded overflow-hidden shadow-lg", id="comment-<%= @blog_comment.id %>">
+      <div class="px-6 py-4">
+        <div class="flex">
+          <strong><%= @blog_comment.user.username %></strong> · <%= distance_of_time_in_words_to_now(@blog_comment.created_at) %> ago
+          <% if @blog_comment.created_at != @blog_comment.updated_at %>
+            <em class="ml-auto">Last Updated: <%= distance_of_time_in_words_to_now(@blog_comment.updated_at) %> ago</em>
+          <% end %>
+        </div>
+        <%= simple_format @blog_comment.body, id: "comment-body-#{@blog_comment.id}" %>
+        </br>
+        <div class="flex">
+          <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_comment.blog_post, parent_id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}" }, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
+          <div class="ml-auto">
+            <% if can? :edit, @blog_comment %>
+              <%= link_to 'Edit', edit_blog_post_blog_comment_path(@blog_comment.blog_post, id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}" }, class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <% end %>
+            <% if can? :destroy, @blog_comment %>
+              <%= link_to 'Delete', blog_post_blog_comment_path(@blog_comment.blog_post, id: @blog_comment.id), data: { turbo_stream: "reply-#{@blog_comment.id}", turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete your comment?' }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>

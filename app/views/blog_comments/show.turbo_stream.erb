@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "edit_blog_comment_#{@blog_comment.id}" do %>
+  <%= simple_format @blog_comment.body, id: "comment-body-#{@blog_comment.id}" %>
+<% end %>

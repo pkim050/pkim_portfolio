@@ -9,7 +9,16 @@ class BlogCommentsController < ApplicationController
     @blog_comments = BlogComment.all
   end
 
-  def show; end
+  def show
+    @blog_post = BlogPost.find(params[:blog_post_id])
+    @blog_comment = @blog_post.blog_comments.find_by(id: params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_reply') }
+      format.turbo_stream { render :show, locals: { blog_comment: @blog_comment } }
+      format.json { render :show, status: :ok, location: @blog_post }
+    end
+  end
 
   def new
     @blog_post = BlogPost.find(params[:blog_post_id])
