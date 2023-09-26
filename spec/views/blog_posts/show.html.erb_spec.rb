@@ -10,9 +10,13 @@ RSpec.describe 'blog_posts/show' do
                        ))
   end
 
-  it 'renders attributes in <p>' do
+  it 'renders Title attributes in <p>' do
     render
     expect(rendered).to match(/Title/)
+  end
+
+  it 'renders Body attributes in <p>' do
+    render
     expect(rendered).to match(/MyText/)
   end
 end

@@ -3,3 +3,5 @@
 <%= turbo_stream.prepend "replies-#{@blog_comment.parent_id}" do %>
   <%= render partial: "reply", locals: { reply: @blog_comment } %>
 <% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

@@ -16,8 +16,10 @@
   </head>
 
   <body class="bg-gray-400">
-    <%= render partial: "layouts/notifications", locals: { message: flash } %>
-    <%= render "layouts/navbar" %>
+    <div id="flash" class="flash sticky top-0">
+      <%= render partial: "layouts/notifications", locals: { message: flash } %>
+      <%= render "layouts/navbar" %>
+    </div>
     <!-- Back to top button -->
     <button
       type="button"
