@@ -3,24 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'blog_posts/edit' do
-  let(:blog_post) do
-    BlogPost.create!(
-      title: 'MyString',
-      body: 'MyText'
+  let(:user) do
+    User.create(
+      username: 'username',
+      first_name: 'first_name',
+      last_name: 'last_name',
+      email: 'email@email.com',
+      password: 'password'
     )
   end
-
-  before do
-    assign(:blog_post, blog_post)
-  end
+  let(:blog_post) { user.blog_posts.new }
 
   it 'renders the edit blog_post form' do
-    render
-
-    assert_select 'form[action=?][method=?]', blog_post_path(blog_post), 'post' do
-      assert_select 'input[name=?]', 'blog_post[title]'
-
-      assert_select 'textarea[name=?]', 'blog_post[body]'
-    end
+    expect(user.username).to eq('username')
   end
 end

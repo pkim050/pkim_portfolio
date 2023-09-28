@@ -9,18 +9,26 @@ class BlogPostsController < ApplicationController
   def index
     @blog_posts = BlogPost.order('created_at desc')
     @pagy, @records = pagy(@blog_posts)
+
+    render :index, locals: { blog_posts: @blog_posts, records: @records, pagy: @pagy }
   end
 
   # GET /blog_posts/1 or /blog_posts/1.json
-  def show; end
+  def show
+    render :show, locals: { blog_post: @blog_post, user: @user }
+  end
 
   # GET /blog_posts/new
   def new
     @blog_post = BlogPost.new
+
+    render :new, locals: { blog_post: @blog_post, user: current_user }
   end
 
   # GET /blog_posts/1/edit
-  def edit; end
+  def edit
+    render :edit, locals: { blog_post: @blog_post, user: @user }
+  end
 
   # POST /blog_posts or /blog_posts.json
   def create

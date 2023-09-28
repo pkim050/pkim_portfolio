@@ -2,7 +2,7 @@
 
 class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_blog_comment, only: %i[edit update destroy]
+  before_action :set_blog_comment, only: %i[show edit update destroy]
 
   def index
     @blog_comments = BlogComment.all
@@ -23,15 +23,13 @@ class BlogCommentsController < ApplicationController
     @blog_post = BlogPost.find(params[:blog_post_id])
     @blog_comment = @blog_post.blog_comments.find_by(id: params[:parent_id])
     @reply = @blog_comment.replies.new(parent_id: params[:parent_id])
+
+    render :new, locals: { blog_post: @blog_post, blog_comment: @blog_comment, reply: @reply, user: current_user }
   end
 
   # GET /blog_comments/1/edit
   def edit
-    respond_to do |format|
-      format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_reply') }
-      format.turbo_stream { render :edit, locals: { blog_comment: @blog_comment } }
-      format.json { render :show, status: :ok, location: @blog_post }
-    end
+    render :edit, locals: { blog_post: @blog_post, blog_comment: @blog_comment }
   end
 
   # POST /blog_comments or /blog_comments.json
@@ -53,6 +51,7 @@ class BlogCommentsController < ApplicationController
     else
       flash.now[:error] = t('.error')
     end
+    render :update, locals: { blog_comment: @blog_comment, reply: @blog_comment }
   end
 
   # DELETE /blog_comments/1 or /blog_comments/1.json
@@ -67,6 +66,7 @@ class BlogCommentsController < ApplicationController
     else
       flash.now[:error] = t('.error')
     end
+    render :destroy, locals: { blog_comment: @blog_comment, reply: @blog_comment }
   end
 
   def cancel_new_form; end
@@ -88,28 +88,24 @@ class BlogCommentsController < ApplicationController
     params.require(:blog_comment).permit(:body, :user_id, :blog_post_id, :parent_id)
   end
 
-  def render_comment_or_reply(blog_comment)
-    respond_to do |format|
-      if blog_comment.parent_id
-        flash.now[:notice] = t('.success_reply')
-        format.turbo_stream { render :create_reply, locals: { blog_comment: } }
-      else
-        flash.now[:notice] = t('.success_comment')
-        format.turbo_stream { render :create, locals: { blog_comment: } }
-      end
+  def render_comment_or_reply(blog_comment_or_reply)
+    if blog_comment_or_reply.parent_id
+      flash.now[:notice] = t('.success_reply')
+      render :create_reply, locals: { reply: blog_comment_or_reply, user: current_user }
+    else
+      flash.now[:notice] = t('.success_comment')
+      render :create, locals: { blog_comment: blog_comment_or_reply, user: current_user }
     end
   end
 
-  def render_comment_error_or_reply_error(blog_comment)
-    @reply = blog_comment
-    respond_to do |format|
-      if blog_comment.parent_id
-        flash.now[:error] = t('.error_reply')
-        format.turbo_stream { render :error_reply, status: :unprocessable_entity, locals: { reply: @reply } }
-      else
-        flash.now[:error] = t('.error_comment')
-        format.turbo_stream { render :error_blog_comment, status: :unprocessable_entity, locals: { blog_comment: } }
-      end
+  def render_comment_error_or_reply_error(blog_comment_or_reply)
+    if blog_comment_or_reply.parent_id
+      flash.now[:error] = t('.error_reply')
+      render :error_reply, status: :unprocessable_entity, locals: { reply: blog_comment_or_reply, user: current_user }
+    else
+      flash.now[:error] = t('.error_comment')
+      render :error_blog_comment, status: :unprocessable_entity, locals: { blog_comment: blog_comment_or_reply,
+                                                                           user: current_user }
     end
   end
 end

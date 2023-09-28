@@ -1,3 +1,0 @@
-<%= turbo_stream.replace "replies-#{@reply.parent_id}" do %>
-  <%= render partial: "blog_comments/reply", locals: { reply: @reply } %>
-<% end %>

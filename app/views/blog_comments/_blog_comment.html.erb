@@ -10,13 +10,13 @@
       <%= simple_format blog_comment.body, id: "comment-body-#{blog_comment.id}" %>
       </br>
       <div class="flex">
-        <%= link_to 'Reply', new_blog_post_blog_comment_path(@blog_post, parent_id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" }, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
+        <%= link_to 'Reply', new_blog_post_blog_comment_path(blog_comment.blog_post, parent_id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" }, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
         <div class="ml-auto">
           <% if can? :edit, blog_comment %>
-            <%= link_to 'Edit', edit_blog_post_blog_comment_path(@blog_post, id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" }, class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <%= link_to 'Edit', edit_blog_post_blog_comment_path(blog_comment.blog_post, id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" }, class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
           <% end %>
           <% if can? :destroy, blog_comment %>
-            <%= link_to 'Delete', blog_post_blog_comment_path(@blog_post, id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}", turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete your comment?' }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+            <%= link_to 'Delete', blog_post_blog_comment_path(blog_comment.blog_post, id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}", turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete your comment?' }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
           <% end %>
         </div>
       </div>

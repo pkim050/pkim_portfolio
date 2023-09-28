@@ -1,15 +1,15 @@
 <div class="container mx-auto px-5 m-20">
-  <%= render @blog_post %>
+  <%= render blog_post %>
 
   <div class="flex">
     <%= link_to "Back to blog posts", blog_posts_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
 
     <div class="ml-auto">
-      <% if can? :edit, @blog_post %>
-        <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+      <% if can? :edit, blog_post %>
+        <%= link_to "Edit", edit_blog_post_path(blog_post), class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
       <% end %>
-      <% if can? :destroy, @blog_post %>
-          <%= button_to "Destroy", @blog_post, method: :delete, data: { confirm: "Are you sure you want to delete #{@blog_post.title}?" }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+      <% if can? :destroy, blog_post %>
+          <%= button_to "Destroy", blog_post, method: :delete, data: { confirm: "Are you sure you want to delete #{blog_post.title}?" }, class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
       <% end %>
     </div>
   </div>
@@ -17,11 +17,11 @@
   <div class="container rounded overflow-hidden shadow-lg">
     <div class="px-5 py-4">
       <p class="font-bold text-xl mb-2">Comments</p>
-      <%= simple_form_for([@blog_post, @blog_post.blog_comments.build]) do |f| %>
+      <%= simple_form_for([blog_post, blog_post.blog_comments.build]) do |f| %>
         <div class="form-group">
           <%= f.label 'New comment' %></br>
           <%= f.text_area :body, class: 'form-control w-full h-24' %>
-          <%= f.hidden_field :user_id, :value => current_user&.id %>
+          <%= f.hidden_field :user_id, :value => user.id %>
         </div>
         <%= f.submit 'Submit', class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
       <% end %>
@@ -29,6 +29,6 @@
   </div>
 
   <div id="blog_comments">
-    <%= render @blog_post.blog_comments.order('created_at desc') %>
+    <%= render blog_post.blog_comments.order('created_at desc') %>
   </div>
 </div>
