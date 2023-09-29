@@ -1,3 +1,5 @@
 <%= turbo_stream.replace "new_blog_comment" do %>
   <%= render partial: "form", locals: { blog_comment: blog_comment } %>
 <% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

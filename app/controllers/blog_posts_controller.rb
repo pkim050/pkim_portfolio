@@ -36,11 +36,9 @@ class BlogPostsController < ApplicationController
 
     respond_to do |format|
       if @blog_post.save
-        format.html { redirect_to blog_post_url(@blog_post), notice: t('.success') }
-        format.json { render :show, status: :created, location: @blog_post }
+        create_success(format, @blog_post)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
+        create_error(format, @blog_post, current_user)
       end
     end
   end
@@ -49,11 +47,9 @@ class BlogPostsController < ApplicationController
   def update
     respond_to do |format|
       if @blog_post.update(blog_post_params)
-        format.html { redirect_to blog_post_url(@blog_post), notice: t('.success') }
-        format.json { render :show, status: :ok, location: @blog_post }
+        update_success(format, @blog_post)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @blog_post.errors, status: :unprocessable_entity }
+        update_error(format, @blog_post, @user)
       end
     end
   end
@@ -79,5 +75,25 @@ class BlogPostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def blog_post_params
     params.require(:blog_post).permit(:title, :body, :user_id)
+  end
+
+  def create_success(format, blog_post)
+    format.html { redirect_to blog_post_url(blog_post), notice: t('.success') }
+    format.json { render :show, status: :created, location: blog_post }
+  end
+
+  def create_error(format, blog_post, user)
+    format.html { render :new, status: :unprocessable_entity, locals: { blog_post:, user: } }
+    format.json { render json: blog_post.errors, status: :unprocessable_entity }
+  end
+
+  def update_success(format, blog_post)
+    format.html { redirect_to blog_post_url(blog_post), notice: t('.success') }
+    format.json { render :show, status: :ok, location: blog_post }
+  end
+
+  def update_error(format, blog_post, user)
+    format.html { render :edit, status: :unprocessable_entity, locals: { blog_post:, user: } }
+    format.json { render json: @blog_post.errors, status: :unprocessable_entity }
   end
 end

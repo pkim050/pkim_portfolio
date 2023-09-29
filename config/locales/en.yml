@@ -39,13 +39,15 @@ en:
       success: 'Blog post was successfully destroyed.'
   blog_comments:
     create:
-      success_comment: 'Comment was successfully created.'
-      success_reply: 'Reply to a comment was successfully created.'
-      error_comment: 'Error trying to create a comment.'
-      error_reply: 'Error trying to create a reply to a comment.'
+      comment_success: 'Comment was successfully created.'
+      comment_error: 'Error trying to create a comment.'
+      reply_success: 'Reply to a comment was successfully created.'
+      reply_error: 'Error trying to create a reply to a comment.'
     update:
-      success: 'Comment was successfully updated.'
-      error: 'Error trying to update comment.'
+      comment_success: 'Comment was successfully updated.'
+      comment_error: 'Error trying to update comment.'
+      reply_success: 'Reply was successfully updated.'
+      reply_error: 'Error trying to update reply.'
     destroy:
       success: 'Comment was successfully deleted.'
       error: 'Error trying to delete comment.'
