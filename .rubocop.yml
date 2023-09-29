@@ -15,3 +15,6 @@ Style/Documentation:
 
 Metrics/MethodLength:
   CountAsOne: ['array', 'heredoc', 'method_call', 'hash']
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false

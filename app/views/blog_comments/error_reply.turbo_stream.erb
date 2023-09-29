@@ -1,5 +1,0 @@
-<%= turbo_stream.replace "new-reply-#{reply.parent_id}" do %>
-  <%= render partial: "reply_form", locals: { reply: reply } %>
-<% end %>
-
-<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

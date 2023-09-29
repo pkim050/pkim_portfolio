@@ -1,9 +1,17 @@
-<%= turbo_stream.prepend "blog_comments" do %>
-  <%= render partial: "blog_comment", locals: { blog_comment: } %>
-<% end %>
+<% if blog_comment.parent_id %>
+  <%= turbo_stream.remove "new-reply-#{reply.parent_id}" %>
 
-<%= turbo_stream.replace "new_blog_comment",
-    partial: "form",
-    locals: { blog_post: blog_comment.blog_post, blog_comment: blog_comment, user: } %>
+  <%= turbo_stream.prepend "replies-#{reply.parent_id}" do %>
+    <%= render partial: "reply", locals: { blog_post:, blog_comment:, reply:, user: } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.prepend "blog_comments" do %>
+    <%= render partial: "blog_comment", locals: { blog_post:, blog_comment:, user: } %>
+  <% end %>
+
+  <%= turbo_stream.replace "new_blog_comment" do %>
+      <%= render partial: "form", locals: { blog_post:, blog_comment:, user: } %>
+  <% end %>
+<% end %>
 
 <%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

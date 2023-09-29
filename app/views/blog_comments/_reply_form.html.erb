@@ -11,7 +11,7 @@
         <% end %>
         <div class="form-group">
           <%= f.label 'Reply', class: "font-bold text-xl mb-2" %>
-          <%= f.text_area :body, class: 'form-control w-full h-24', value: "@#{blog_comment.user.username}, " %>
+          <%= f.text_area :body, class: 'form-control w-full h-24', value: "@#{user.username}, " %>
           <%= f.hidden_field :parent_id, value: blog_comment.id %>
           <%= f.hidden_field :user_id, value: user.id %>
         </div>

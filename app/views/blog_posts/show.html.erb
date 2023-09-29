@@ -29,6 +29,6 @@
   </div>
 
   <div id="blog_comments">
-    <%= render blog_post.blog_comments.order('created_at desc') %>
+    <%= render partial: blog_post.blog_comments.order('created_at desc'), locals: { blog_post:, user: } %>
   </div>
 </div>

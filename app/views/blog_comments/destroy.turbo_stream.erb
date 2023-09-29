@@ -1,5 +1,5 @@
-<%= turbo_stream.replace "comment-#{blog_comment.id}" do %>
-  <% if blog_comment.parent_id %>
+<% if reply %>
+  <%= turbo_stream.replace "comment-#{reply.id}" do %>
     <div class="rounded overflow-hidden shadow-lg", id="comment-<%= reply.id %>">
       <div class="px-6 py-4">
         <div class="flex">
@@ -23,7 +23,9 @@
         </div>
       </div>
     </div>
-  <% else %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "comment-#{blog_comment.id}" do %>
     <div class="container rounded overflow-hidden shadow-lg", id="comment-<%= blog_comment.id %>">
       <div class="px-6 py-4">
         <div class="flex">

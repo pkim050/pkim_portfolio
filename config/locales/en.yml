@@ -49,5 +49,7 @@ en:
       reply_success: 'Reply was successfully updated.'
       reply_error: 'Error trying to update reply.'
     destroy:
-      success: 'Comment was successfully deleted.'
-      error: 'Error trying to delete comment.'
+      comment_success: 'Comment was successfully deleted.'
+      comment_error: 'Error trying to delete comment.'
+      reply_success: 'Reply was successfully deleted.'
+      reply_error: 'Error trying to delete reply.'

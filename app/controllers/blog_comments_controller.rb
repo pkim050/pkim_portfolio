@@ -9,11 +9,7 @@ class BlogCommentsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html { redirect_to blog_post_url(@blog_post), notice: t('.success_reply') }
-      format.turbo_stream { render :show, locals: { blog_comment: @blog_comment } }
-      format.json { render :show, status: :ok, location: @blog_post }
-    end
+    render :show, locals: { blog_comment: @blog_comment }
   end
 
   def new
@@ -34,25 +30,20 @@ class BlogCommentsController < ApplicationController
     @blog_post = BlogPost.find(params[:blog_post_id])
     @blog_comment = @blog_post.blog_comments.new(blog_comment_params)
 
-    respond_to do |format|
-      if @blog_comment.save
-        create_comment_success(format, @blog_post, @blog_comment, @blog_comment.parent_id)
-      else
-        create_comment_error(format, @blog_post, @blog_comment, @blog_comment.parent_id)
-      end
+    if @blog_comment.save
+      successful_comment_or_reply_check(@blog_post, @blog_comment, current_user, @blog_comment.parent_id, :create)
+    else
+      error_comment_or_reply_check(@blog_post, @blog_comment, current_user, @blog_comment.parent_id, :error_create)
     end
   end
 
   # PATCH/PUT /blog_comments/1 or /blog_comments/1.json
   def update
-    respond_to do |format|
-      if @blog_comment.update(blog_comment_params)
-        create_comment_success(format, @blog_post, @blog_comment, @blog_comment.parent_id)
-      else
-        create_comment_error(format, @blog_post, @blog_comment, @blog_comment.parent_id)
-      end
+    if @blog_comment.update(blog_comment_params)
+      successful_comment_or_reply_check(@blog_post, @blog_comment, @user, @blog_comment_parent, :update)
+    else
+      error_comment_or_reply_check(@blog_post, @blog_comment, @user, @blog_comment_parent, :error_update)
     end
-    render :update, locals: { blog_comment: @blog_comment, reply: @blog_comment }
   end
 
   # DELETE /blog_comments/1 or /blog_comments/1.json
@@ -63,11 +54,11 @@ class BlogCommentsController < ApplicationController
                            'Comment deleted by admin'
                          end
     if @blog_comment.save
-      flash.now[:notice] = t('.success')
+      successful_comment_or_reply_check(@blog_post, @blog_comment, @user, @blog_comment_parent, :destroy)
     else
-      flash.now[:error] = t('.error')
+      redirect_to blog_post_url(blog_post), notice: t('.comment_error') unless @blog_comment_parent
+      redirect_to blog_post_url(blog_post), notice: t('.reply_error')
     end
-    render :destroy, locals: { blog_comment: @blog_comment, reply: @blog_comment }
   end
 
   def cancel_new_form; end
@@ -89,91 +80,21 @@ class BlogCommentsController < ApplicationController
     params.require(:blog_comment).permit(:body, :user_id, :blog_post_id, :parent_id)
   end
 
-  def parent_id_check_on_create_success(format, blog_post, blog_comment, parent_id)
-    if parent_id
-      create_reply_success(format, blog_post, blog_comment)
+  def successful_comment_or_reply_check(blog_post, blog_comment, user, blog_comment_parent, action)
+    if blog_comment_parent
+      flash.now[:notice] = t('.reply_success')
+      render action, locals: { blog_post:, blog_comment: blog_comment.parent, reply: blog_comment, user: }
     else
-      create_comment_success(format, blog_post, blog_comment)
+      flash.now[:notice] = t('.comment_success')
+      render action, locals: { blog_post:, blog_comment:, reply: nil, user: }
     end
   end
 
-  def parent_id_check_on_create_error(format, blog_post, blog_comment, parent_id)
-    if parent_id
-      create_reply_error(format, blog_post, blog_comment)
+  def error_comment_or_reply_check(blog_post, blog_comment, user, blog_comment_parent, action)
+    if blog_comment_parent
+      render action, locals: { blog_post:, blog_comment: blog_comment.parent, reply: blog_comment, user: }
     else
-      create_comment_error(format, blog_post, blog_comment)
+      render action, locals: { blog_post:, blog_comment:, reply: nil, user: }
     end
-  end
-
-  def create_comment_success(format, blog_post, blog_comment)
-    flash.now[:notice] = t('.comment_success')
-    format.html { redirect_to blog_post_url(blog_post), notice: t('.reply_success') }
-    format.json { render :show, status: :created, location: blog_post }
-    format.turbo_stream { render :create, locals: { blog_post:, blog_comment:, user: current_user } }
-  end
-
-  def create_comment_error(format, blog_post, blog_comment)
-    flash.now[:error] = t('.comment_error')
-    format.html { redirect_to blog_post_url(blog_post), status: :unprocessable_entity }
-    format.json { render json: blog_comment.errors, status: :unprocessable_entity }
-    format.turbo_stream { render :error_blog_comment, locals: { blog_post:, blog_comment:, user: current_user } }
-  end
-
-  def create_reply_success(format, blog_post, blog_comment)
-    flash.now[:notice] = t('.reply_success')
-    format.html { redirect_to blog_post_url(blog_post), notice: t('.reply_success') }
-    format.json { render :show, status: :created, location: blog_post }
-    format.turbo_stream { render :create_reply, locals: { blog_post:, reply: blog_comment, user: current_user } }
-  end
-
-  def create_reply_error(format, blog_post, reply)
-    flash.now[:error] = t('.reply_error')
-    format.html { redirect_to blog_post_url(blog_post), status: :unprocessable_entity }
-    format.json { render json: reply.errors, status: :unprocessable_entity }
-    format.turbo_stream { render :error_reply, locals: { blog_post:, reply:, user: current_user } }
-  end
-
-  def parent_id_check_on_update_success(format, blog_post, blog_comment, parent_id)
-    if parent_id
-      update_reply_success(format, blog_post, blog_comment)
-    else
-      update_comment_success(format, blog_post, blog_comment)
-    end
-  end
-
-  def parent_id_check_on_update_error(format, blog_post, blog_comment, parent_id)
-    if parent_id
-      update_reply_error(format, blog_post, blog_comment)
-    else
-      update_comment_error(format, blog_post, blog_comment)
-    end
-  end
-
-  def update_comment_success(format, blog_post, blog_comment)
-    flash.now[:notice] = t('.comment_success')
-    format.html { redirect_to blog_post_url(blog_post), notice: t('.reply_success') }
-    format.json { render :show, status: :ok, location: blog_post }
-    format.turbo_stream { render :update, locals: { blog_post:, blog_comment:, user: current_user } }
-  end
-
-  def update_comment_error(format, blog_post, blog_comment)
-    flash.now[:error] = t('.comment_error')
-    format.html { redirect_to blog_post_url(blog_post), status: :unprocessable_entity }
-    format.json { render json: blog_comment.errors, status: :unprocessable_entity }
-    format.turbo_stream { render :error_blog_comment, locals: { blog_post:, blog_comment:, user: current_user } }
-  end
-
-  def update_reply_success(format, blog_post, blog_comment)
-    flash.now[:notice] = t('.reply_success')
-    format.html { redirect_to blog_post_url(blog_post), notice: t('.reply_success') }
-    format.json { render :show, status: :ok, location: blog_post }
-    format.turbo_stream { render :update, locals: { blog_post:, reply: blog_comment, user: current_user } }
-  end
-
-  def update_reply_error(format, blog_post, reply)
-    flash.now[:error] = t('.reply_error')
-    format.html { redirect_to blog_post_url(blog_post), status: :unprocessable_entity }
-    format.json { render json: reply.errors, status: :unprocessable_entity }
-    format.turbo_stream { render :error_reply, locals: { blog_post:, reply:, user: current_user } }
   end
 end
