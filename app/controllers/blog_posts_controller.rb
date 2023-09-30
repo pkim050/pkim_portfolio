@@ -9,6 +9,7 @@ class BlogPostsController < ApplicationController
   def index
     @blog_posts = BlogPost.order('created_at desc')
     @pagy, @records = pagy(@blog_posts)
+    Rails.logger.info("parameters: #{params}")
 
     render :index, locals: { blog_posts: @blog_posts, records: @records, pagy: @pagy }
   end

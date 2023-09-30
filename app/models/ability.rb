@@ -6,7 +6,12 @@ class Ability
   def initialize(user)
     can :read, BlogPost, public: true
     can :read, BlogComment, public: true
-    can %i[create update destroy], BlogComment if user
+
+    return unless user
+
+    # rubocop:disable Style/HashSyntax
+    can %i[create update destroy], BlogComment, user: user
+    # rubocop:enable Style/HashSyntax
 
     return unless user&.admin?
 
