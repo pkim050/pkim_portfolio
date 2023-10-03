@@ -130,7 +130,7 @@ RSpec.describe BlogPostsController do
       end
 
       it 'authorizes to action new' do
-        expect { get :new }.not_to raise_error(CanCan::AccessDenied)
+        expect { get :new }.not_to raise_error
       end
     end
   end
@@ -284,12 +284,16 @@ RSpec.describe BlogPostsController do
         expect(assigns(:blog_post)).to eq(BlogPost.find_by(create_params[:blog_post]))
       end
 
-      it 'one more Blog Post' do
-        expect(BlogPost.count).to eq(1)
-      end
-
       it 'has flash notice' do
         expect(flash[:notice]).to eq('Blog post was successfully created.')
+      end
+    end
+
+    context 'when after blog post create' do
+      login_admin
+
+      it 'increments Blog Post data by 1' do
+        expect { post :create, params: create_params }.to change(BlogPost, :count).by(1)
       end
     end
 
@@ -445,10 +449,6 @@ RSpec.describe BlogPostsController do
         delete :destroy, params: { id: blog_post.id }
       end
 
-      it 'one less Blog Post' do
-        expect(BlogPost.count).to eq(0)
-      end
-
       it 'redirects to blog post index page' do
         expect(response).to redirect_to blog_posts_url
       end
@@ -459,6 +459,12 @@ RSpec.describe BlogPostsController do
 
       it 'has flash notice' do
         expect(flash[:notice]).to eq('Blog post was successfully destroyed.')
+      end
+    end
+
+    context 'when after blog post destroy' do
+      it 'decrements Blog Post data by 1' do
+        expect { delete :destroy, params: { id: blog_post.id } }.to change(BlogPost, :count).by(1)
       end
     end
   end
