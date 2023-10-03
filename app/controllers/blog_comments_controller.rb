@@ -3,7 +3,7 @@
 class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_blog_comment, only: %i[show edit update destroy]
-  load_and_authorize_resource
+  authorize_resource except: %i[index show]
 
   def index
     @blog_comments = BlogComment.all

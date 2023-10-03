@@ -18,3 +18,12 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   CountRepeatedAttributes: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+# RSpec/NestedGroups:
+#   MaxNesting: 4
+
+# RSpec/MultipleMemoizedHelpers:
+#   Max: 6

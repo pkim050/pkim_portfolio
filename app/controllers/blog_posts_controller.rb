@@ -3,6 +3,7 @@
 class BlogPostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_blog_post, only: %i[show edit update destroy]
+  authorize_resource except: %i[index show]
   include Pagy::Backend
 
   # GET /blog_posts or /blog_posts.json
