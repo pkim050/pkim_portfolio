@@ -1,6 +1,6 @@
 <!-- component -->
 <body>
-  <nav class="flex justify-between items-center bg-black sticky top-0">
+  <nav class="flex justify-between items-center bg-black">
     <a class="max-w-[5%]" href="/">
       <%= image_tag "pkim_logo.png" %>
     </a>
@@ -25,7 +25,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
         </svg>
       </li>
-      <li><a class="text-sm text-[#bf04ff] hover:text-pink-300" href="#">Blog</a></li>
+      <li><%= link_to "Blog", blog_posts_path, class: "text-sm text-[#bf04ff] hover:text-pink-300" %></li>
       <li class="text-[#bf04ff]">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -40,10 +40,10 @@
       <li><a class="text-sm text-[#bf04ff] hover:text-pink-300" href="#">Resume</a></li>
     </ul>
     <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "hidden lg:inline-block py-2 px-6 mr-4 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
     <% else %>
-      <%= link_to "Sign In", new_user_session_path, class: "hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-gray-900 font-bold  rounded-xl transition duration-200" %>
+      <%= link_to "Sign In", new_user_session_path, class: "hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "hidden lg:inline-block py-2 px-6 mr-4 bg-blue-500 hover:bg-[#bf04ff] text-sm text-white font-bold rounded-xl transition duration-200" %>
     <% end %>
   </nav>
@@ -69,7 +69,7 @@
             <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href="#">About Me</a>
           </li>
           <li class="mb-1">
-            <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href="#">Blog</a>
+            <%= link_to "Blog", blog_posts_path, class: "block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" %>
           </li>
           <li class="mb-1">
             <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href="#">Projects</a>

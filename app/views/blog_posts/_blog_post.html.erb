@@ -1,0 +1,17 @@
+<div id="<%= dom_id blog_post %>" class="break-all">
+  <% if @blog_posts %>
+    </br>
+    <strong><%= blog_post.title&.capitalize %></strong>
+    </br></br>
+    <span class="line-clamp-3"><%= raw blog_post.body %></span>
+    </br>
+    <button>
+      <%= link_to "Read more ->", blog_post, class: "underline" %>
+    </button>
+  <% else %>
+    <strong class="flex justify-center"><%= blog_post.title&.capitalize %></strong>
+    </br></br>
+    <span class=""><%= raw blog_post.body %></span>
+  <% end %>
+  </br></br>
+</div>

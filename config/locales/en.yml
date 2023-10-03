@@ -30,4 +30,26 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  blog_posts:
+    create:
+      success: 'Blog post was successfully created.'
+    update:
+      success: 'Blog post was successfully updated.'
+    destroy:
+      success: 'Blog post was successfully destroyed.'
+  blog_comments:
+    create:
+      comment_success: 'Comment was successfully created.'
+      comment_error: 'Error trying to create a comment.'
+      reply_success: 'Reply to a comment was successfully created.'
+      reply_error: 'Error trying to create a reply to a comment.'
+    update:
+      comment_success: 'Comment was successfully updated.'
+      comment_error: 'Error trying to update comment.'
+      reply_success: 'Reply was successfully updated.'
+      reply_error: 'Error trying to update reply.'
+    destroy:
+      comment_success: 'Comment was successfully deleted.'
+      comment_error: 'Error trying to delete comment.'
+      reply_success: 'Reply was successfully deleted.'
+      reply_error: 'Error trying to delete reply.'

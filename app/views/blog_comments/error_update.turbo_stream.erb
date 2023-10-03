@@ -1,0 +1,11 @@
+<% if reply %>
+  <%= turbo_stream.replace "edit_blog_comment_#{reply.id}" do %>
+    <%= render partial: "edit", locals: { blog_post:, blog_comment: reply } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "edit_blog_comment_#{blog_comment.id}" do %>
+    <%= render partial: "edit", locals: { blog_post:, blog_comment: } %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

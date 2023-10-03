@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "new-reply-#{reply.parent_id}" do %>
+  <div>
+    <div class="px-5 py-4">
+      <%= simple_form_for([blog_post, blog_comment.replies.build]) do |f| %>
+        <% if reply.errors.any? %>
+          <% flash.now[:error] = reply.errors.full_messages %>
+          <% reply.errors.full_messages.each do |error| %>
+            <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
+          <% end %>
+          </br>
+        <% end %>
+        <div class="form-group">
+          <%= f.label 'Reply', class: "font-bold text-xl mb-2" %>
+          <%= f.text_area :body, class: 'form-control w-full h-24', value: "@#{user.username}, " %>
+          <%= f.hidden_field :parent_id, value: blog_comment.id %>
+          <%= f.hidden_field :user_id, value: user.id %>
+        </div>
+        <%= f.submit 'Submit', class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
+        <%= link_to 'Cancel', "/blog_posts/#{blog_post.id}/blog_comments/#{reply.parent_id}/cancel_new_form", class: "py-2 px-6 bg-red-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200", data: { turbo_stream: "new-reply-#{reply.parent_id}", turbo_method: :delete } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<h1 class="text-4xl font-bold flex items-center justify-center pt-6 text-[#bf04ff]">Editing Blog Post</h1>
+
+<div class="py-12">
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-[#bf04ff] overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="p-6 bg-black border-b border-[#bf04ff]">
+        <%= render partial: "form", locals: { blog_post:, user: } %>
+      </div>
+    </div>
+  </div>
+</div>

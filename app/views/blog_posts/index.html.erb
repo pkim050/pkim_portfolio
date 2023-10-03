@@ -1,0 +1,14 @@
+<% if can? :create, blog_posts %>
+  <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+<% end %>
+
+<div id="blog_posts" class="container mx-auto px-60 m-20 divide-y divide-[#bf04ff]">
+  <% records.each do |blog_post| %>
+    <%= render blog_post %>
+  <% end %>
+  <%== pagy_nav(pagy) if pagy.pages > 1 %>
+</div>
+
+<% if can? :create, blog_posts %>
+  <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+<% end %>

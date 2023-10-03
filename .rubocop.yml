@@ -12,3 +12,18 @@ Style/ClassAndModuleChildren:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'heredoc', 'method_call', 'hash']
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+# RSpec/NestedGroups:
+#   MaxNesting: 4
+
+# RSpec/MultipleMemoizedHelpers:
+#   Max: 6

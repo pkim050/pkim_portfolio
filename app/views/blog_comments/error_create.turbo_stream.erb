@@ -1,0 +1,11 @@
+<% if blog_comment.id %>
+  <%= turbo_stream.replace "new-reply-#{reply.parent_id}" do %>
+    <%= render partial: "reply_form", locals: { blog_post:, blog_comment:, reply:, user: } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "new_blog_comment" do %>
+    <%= render partial: "form", locals: { blog_post:, blog_comment:, user: } %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>
