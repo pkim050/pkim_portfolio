@@ -75,6 +75,10 @@ gem 'tinymce-rails'
 
 gem 'pagy'
 
+gem 'unicorn'
+
+gem 'capistrano'
+
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do
