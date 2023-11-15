@@ -79,6 +79,8 @@ gem 'unicorn'
 
 gem 'capistrano'
 
+gem 'capistrano-rails'
+
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do
