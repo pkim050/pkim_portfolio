@@ -77,12 +77,6 @@ gem 'pagy'
 
 gem 'unicorn'
 
-gem 'capistrano'
-
-gem 'capistrano-rails'
-
-gem 'capistrano-rvm'
-
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do
@@ -96,6 +90,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-faster-assets', require: false
+  gem 'capistrano-git-copy', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
