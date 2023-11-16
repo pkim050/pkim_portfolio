@@ -81,6 +81,8 @@ gem 'capistrano'
 
 gem 'capistrano-rails'
 
+gem 'capistrano-rvm'
+
 gem 'simplecov', require: false, group: :test
 
 group :development, :test do
