@@ -7,6 +7,7 @@ lock '~> 3.18.0'
 set :rails_env, 'production'
 
 set :application, 'pkim_portfolio'
+
 set :repo_url, 'git@github.com:pkim050/pkim_portfolio.git'
 
 # Default branch is :master
@@ -33,11 +34,10 @@ set :assets_roles, %i[web app]
 # set this to the number of versions to keep
 set :keep_assets, 2
 
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/uploads'
-append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/master.key'
-
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/var/www/pkim_portfolio'
+
+append :linked_files, 'config/master.key'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
