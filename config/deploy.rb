@@ -37,6 +37,7 @@ set :keep_assets, 2
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/var/www/pkim_portfolio'
 
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 append :linked_files, 'config/master.key'
 
 # Default value for :format is :airbrussh.
