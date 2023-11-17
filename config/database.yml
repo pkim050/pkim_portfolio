@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: pkim_portfolio_production
-  # username: pkim_portfolio
-  # password: <%= ENV["PKIM_PORTFOLIO_DATABASE_PASSWORD"] %>
+  # username: deployer
+  # password: deployer_123
