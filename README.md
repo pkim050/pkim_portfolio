@@ -8,7 +8,7 @@ Techstack:
 Ruby 3.2.2
 Rails 7.0.8
 Bundler 2.4.19
-RubyGems 3.4.19
+RubyGems 3.4.22
 Postgresql
 Hotwire
 Tailwind CSS

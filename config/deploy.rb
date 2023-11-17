@@ -13,6 +13,8 @@ set :repo_url, 'git@github.com:pkim050/pkim_portfolio.git'
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+set :log_level, :info
+
 # Defaults to :db role
 set :migration_role, :app
 
@@ -35,10 +37,10 @@ set :assets_roles, %i[web app]
 set :keep_assets, 2
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/pkim_portfolio'
+set :deploy_to, '/var/www/patrickaaronkim.com'
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
-append :linked_files, 'config/master.key'
+append :linked_files, 'config/master.key', 'config/database.yml'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -48,7 +50,7 @@ append :linked_files, 'config/master.key'
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", 'config/master.key'

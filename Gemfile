@@ -96,7 +96,7 @@ group :development do
   gem 'capistrano-faster-assets', require: false
   gem 'capistrano-git-copy', require: false
   gem 'capistrano-rails', require: false
-  gem 'capistrano-rvm', require: false
+  gem 'capistrano-rbenv', require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 

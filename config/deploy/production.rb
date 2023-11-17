@@ -56,4 +56,4 @@
 #     # password: "please use keys"
 #   }
 
-server 'patrickaaronkim.com', user: 'root', roles: %w[app db web]
+server 'patrickaaronkim.com', user: 'deployer', roles: %w[app db web]
