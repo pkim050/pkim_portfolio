@@ -69,3 +69,12 @@ set :pty, true
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+  desc 'Start server'
+  task :server do
+    on roles(:all) do
+      execute :bundle, :exec, 'bin/prod', 'RAILS_ENV=production'
+    end
+  end
+end
