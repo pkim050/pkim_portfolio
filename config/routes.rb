@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'patch_notes/index'
   resources :blog_posts do
     resources :blog_comments
   end
