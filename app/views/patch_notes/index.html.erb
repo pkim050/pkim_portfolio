@@ -1,80 +1,88 @@
 <h1>PatchNotes#index</h1>
 <p>Find me in app/views/patch_notes/index.html.erb</p>
 
+<p>List of all patch notes</p>
+
+<% Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.each do |patch_note| %>
+  <% next if patch_note.include? 'index' %>
+  <%= raw(File.read("./app/views/patch_notes/#{patch_note}")) %>
+  <%= patch_note.split('.html.erb').first %>
+<% end %>
+
 <h1>Patch Notes v9.15b</h1>
 <h4>Deployed: 2021-09-15 22:39:59 -0700</h4>
 <br>
 <h2>New Implementations</h2>
 <ul>
-    <li><strong>Transfers</strong></li>
-        <ul>
-            <li>Added Transfers index page as one of the options in the navigation.</li>
-            <li>Index page shows the history of students that have been transferred.</li>
-            <li>Users have the ability to choose to transfer a student as long as that student is not enrolled in any classes. Otherwise, validations will prevent the user from creating the transfer.</li>
-            <li>Users also have the ability to delete the transfer.</li>
-            <li>Correctly changes the chosen student to have the selected school to be transferred, replacing the previous school they were under, in the back end.</li>
-        </ul>
-    <li><strong>Google Map API</strong></li>
-        <ul>
-            <li>Implemented a google map to showcase and pinpoint the exact location of each school in the index page.</li>
-            <li>Also implemented a google map to individual school show page.</li>
-            <li>Made sure to always have the map fully functional by inputting turbolinks to be false in every javascript link that are associated with the map.</li>
-            <li>Added new migration to an existing Model (User) & added them into the permit, to pin point the location on the maps.
-        </ul>
-    <li><strong>Patch Notes</strong></li>
-        <ul>
-            <li>Implemented Patch Notes to showcase documentation.</li>
-        </ul>
+  <li><strong>Transfers</strong></li>
+    <ul>
+      <li>Added Transfers index page as one of the options in the navigation.</li>
+      <li>Index page shows the history of students that have been transferred.</li>
+      <li>Users have the ability to choose to transfer a student as long as that student is not enrolled in any classes. Otherwise, validations will prevent the user from creating the transfer.</li>
+      <li>Users also have the ability to delete the transfer.</li>
+      <li>Correctly changes the chosen student to have the selected school to be transferred, replacing the previous school they were under, in the back end.</li>
+    </ul>
+  <li><strong>Google Map API</strong></li>
+    <ul>
+      <li>Implemented a google map to showcase and pinpoint the exact location of each school in the index page.</li>
+      <li>Also implemented a google map to individual school show page.</li>
+      <li>Made sure to always have the map fully functional by inputting turbolinks to be false in every javascript link that are associated with the map.</li>
+      <li>Added new migration to an existing Model (User) & added them into the permit, to pin point the location on the maps.
+    </ul>
+  <li><strong>Patch Notes</strong></li>
+    <ul>
+      <li>Implemented Patch Notes to showcase documentation.</li>
+    </ul>
 </ul>
 <br>
 <h2>Bug Fixes</h2>
 <ul>
-    <li><strong>Enrollments</strong></li>
-        <ul>
-            <li>Fixed a bug where controller were showing incorrect paths for both create and update methods.</li>
-            <li>Fixed a bug where clicking on Show during edit form was linking to the same path as edit form.</li>
-        </ul>
-    <li><strong>Rspec</strong></li>
-        <ul>
-            <li>Fixed a bug where Rspec would expect an entirely incorrect value/response.</li>
-            <li>Fixed a bug where Rspec were missing important variables that were needed to get the correct value/response.</li>
-            <li>Fixed all intended in-correct values/responses.</li>
-        </ul>
-    <li><strong>Student</strong></li>
-        <ul>
-            <li>Fixed a bug where cohort partial form's field for cohort was not properly used as the attribute name was incorrect.</li>
-        </ul>
-    <li><strong>Curriculum</strong></li>
-        <ul>
-            <li>Added validations so that the partial form will give an error when no fields were filled.</li>
-        </ul>
+  <li><strong>Enrollments</strong></li>
+    <ul>
+      <li>Fixed a bug where controller were showing incorrect paths for both create and update methods.</li>
+      <li>Fixed a bug where clicking on Show during edit form was linking to the same path as edit form.</li>
+    </ul>
+  <li><strong>Rspec</strong></li>
+    <ul>
+      <li>Fixed a bug where Rspec would expect an entirely incorrect value/response.</li>
+      <li>Fixed a bug where Rspec were missing important variables that were needed to get the correct value/response.</li>
+      <li>Fixed all intended in-correct values/responses.</li>
+    </ul>
+  <li><strong>Student</strong></li>
+    <ul>
+      <li>Fixed a bug where cohort partial form's field for cohort was not properly used as the attribute name was incorrect.</li>
+    </ul>
+  <li><strong>Curriculum</strong></li>
+    <ul>
+      <li>Added validations so that the partial form will give an error when no fields were filled.</li>
+    </ul>
 </ul>
 <br>
 <h2>Quality of Life Updates</h2>
 <ul>
-    <li><strong>Navigation</strong></li>
-        <ul>
-            <li>Changed the layout and mouse interaction including colors and positioning.</li>
-            <li>Note: We didn't like to see that green background, rather have it blend in with the main page(s). Also caters to color-blind by sticking with black & white. Sometimes simple is better.</li>
-        </ul>
-    <li><strong>Tables</strong></li>
-        <ul>
-            <li>For better visibility, we added border lines to each table and included "Actions" as a header for the 2-3 commands that the users can do for each row.</li>
-        </ul>
-    <li><strong>Patch Notes</strong></li>
-        <ul>
-            <li>Using un-ordered lists and nested un-ordered lists to give a clean and simple UI for users to easily read.</li>
-        </ul>
+  <li><strong>Navigation</strong></li>
+    <ul>
+      <li>Changed the layout and mouse interaction including colors and positioning.</li>
+      <li>Note: We didn't like to see that green background, rather have it blend in with the main page(s). Also caters to color-blind by sticking with black & white. Sometimes simple is better.</li>
+    </ul>
+  <li><strong>Tables</strong></li>
+    <ul>
+      <li>For better visibility, we added border lines to each table and included "Actions" as a header for the 2-3 commands that the users can do for each row.</li>
+    </ul>
+  <li><strong>Patch Notes</strong></li>
+    <ul>
+      <li>Using un-ordered lists and nested un-ordered lists to give a clean and simple UI for users to easily read.</li>
+    </ul>
 </ul>
 <br>
 <h3>Dev Notes</h3>
 <ul>
-    <li><strong>Future Implementations / Bug Fixes / Quality of Life Updates</strong></li>
-        <ul>
-            <li>Curriculum model is not really being used as it should as the final product, more changes will such as linking them with other users, utilizing the max size, restricting any more students to sign up for the curriculum, etc.</li>
-            <li>All of the edit forms and transfer forms should not be able to update if certain fields are the same or no updates have been made, because... there's just no point in "updating" when the values are exactly the same.</li>
-            <li>Did not include Rspec testings for Transfer but that should be implemented on the next patch.</li>
-            <li>In general, there are a lot of things to improve on of course. Product's in general will need to be adataptable, re-usable, readable, accountable. I probably missed a lot of other bug fixes / updates that I have made since I forget to mention every little details.</li>
-            <li>Last but not least, I have enjoyed this exercise and I hope this helps showcase my skills and be able to help me move forward to the next step. I would love to be part of this team and help give access to important knowledge that can be used in our everyday life.</li>
-        </ul>
+  <li><strong>Future Implementations / Bug Fixes / Quality of Life Updates</strong></li>
+    <ul>
+      <li>Curriculum model is not really being used as it should as the final product, more changes will such as linking them with other users, utilizing the max size, restricting any more students to sign up for the curriculum, etc.</li>
+      <li>All of the edit forms and transfer forms should not be able to update if certain fields are the same or no updates have been made, because... there's just no point in "updating" when the values are exactly the same.</li>
+      <li>Did not include Rspec testings for Transfer but that should be implemented on the next patch.</li>
+      <li>In general, there are a lot of things to improve on of course. Product's in general will need to be adataptable, re-usable, readable, accountable. I probably missed a lot of other bug fixes / updates that I have made since I forget to mention every little details.</li>
+      <li>Last but not least, I have enjoyed this exercise and I hope this helps showcase my skills and be able to help me move forward to the next step. I would love to be part of this team and help give access to important knowledge that can be used in our everyday life.</li>
+    </ul>
 </ul>
