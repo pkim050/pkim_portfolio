@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'patch_notes/index'
+  get 'patch_notes', to: 'patch_notes#index'
 
-  get 'patch_notes/:name', to: 'patch_notes#boom', constraints: { name: /v[0-9]+.[0-9]+.[0-9]+/ }
+  get 'patch_notes/:name', to: 'patch_notes#boom', constraints: { name: %r{[^\/]+} }, as: :patch_note
 
   resources :blog_posts do
     resources :blog_comments

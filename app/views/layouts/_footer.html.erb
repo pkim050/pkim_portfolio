@@ -3,7 +3,7 @@
   <footer class="sticky z-0 bottom-0 w-full p-4 bg-black">
     <span class="text-sm text-[#bf04ff] sm:text-center flex justify-between">
       <p>© 2023&nbsp <a href="/" class="hover:underline hover:text-pink-300">Patrick Aaron Kim™.</a> All Rights Reserved.</p>
-      <p><a href="" class="underline hover:text-pink-300"><%= File.read('.app_version') %></a></p>
+      <p><a href="/patch_notes/<%= Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.first.split('.html.erb').first.gsub('_', '.') %>" class="underline hover:text-pink-300"><%= File.read('.app_version') %></a></p>
     </span>
   </footer>
 </body>
