@@ -3,7 +3,7 @@
 class PatchNotesController < ApplicationController
   def index; end
 
-  def boom
+  def patch_note
     file_check = false
 
     Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.each do |patch_note|

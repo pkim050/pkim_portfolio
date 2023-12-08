@@ -1,8 +1,11 @@
-List of all versions:
-<ul>
-  <% Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.each do |patch_note| %>
-    <% if patch_note.split('.html.erb').first.match(/v[0-9]+.[0-9]+.[0-9]+/) %>
-      <li><a href="/patch_notes/<%= patch_note.split('.html.erb').first.gsub('_', '.') %>"><%= patch_note.split('.html.erb').first.gsub('_', '.') %></a></li>
+<div class="text-center">
+  <h1 class="text-4xl font-bold">Versions</h1><br>
+  <ul>
+    <% Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.each do |patch_note| %>
+      <% if patch_note.split('.html.erb').first.match(/v[0-9]+.[0-9]+.[0-9]+/) %>
+        <li><a class="underline text-black hover:text-[#bf04ff]" href="/patch_notes/<%= patch_note.split('.html.erb').first.gsub('_', '.') %>"><%= patch_note.split('.html.erb').first.gsub('_', '.') %></a></li>
+        <br>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>

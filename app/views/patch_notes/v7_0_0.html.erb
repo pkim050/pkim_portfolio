@@ -1,2 +1,120 @@
-<h1>v7.0.0 test</h1>
-<%= render 'versions' %>
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v7.0.0</h1>
+    <br>
+    <h4 class="text-xl font-bold">December 8, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 8)) %> ago</h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br>
+    <p class="border-b-2 border-black">Patch notes is officially live. Wait, isn't there previous versions of patch notes? Yes... but it was never in production. Or was it..? Just kidding, it was never implemented until now, just kept the documentation to myself.</p>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">New Implementations</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>As mentioned in previous patch notes, documentation is incredibly important. It helps everyone to be on the same page and know what is supposed to work and what is not. Also helps identify what bugs users experiences.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Patch Notes</strong></li>
+      <br>
+      <p><em>Enough quote blocks, lets just move on to the documentations shall we?</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Migrated patch notes strictly on controller and view. No model, no database.</li>
+        <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the file does not exist.</li>
+        <li>List of all patch versions that are clickable will be listed on the right side of all patch notes.</li>
+        <li>Index page simply shows a list of patch note versions.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Footer</strong></li>
+      <br>
+      <p><em>Footer is finally added. Just like navbar, we want the footer to be always shown on the bottom.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Migrated patch notes strictly on controller and view. No model, no database.</li>
+        <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the file does not exist.</li>
+        <li>List of all patch versions that are clickable will be listed on the right side of all patch notes.</li>
+        <li>Index page simply shows a list of patch note versions.</li>
+      </ul>
+      <br>
+    </ul>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Need to update in order to get some functionalities to work, it's worth it, trust me.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Navbar</strong></li>
+      <br>
+      <p><em>As promised, navbar will be updated after configuring Devise. Users can actually create an account now!</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Configured to display all RSpec messages as default only showed what failed and what passed in a dot/x format.</li>
+        <li>Clicking the icon on the top left of the navbar will direct user to homepage instead of scrolling back to the top of the page.</li>
+        <li>Navbar now displays Edit Profile and Sign Out buttons on the right side when user is logged in.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Landing Page</strong></li>
+      <br>
+      <p><em>Silly typos...</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Updated a typo.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Testing</strong></li>
+      <br>
+      <p><em>This is more for the developers moving forward... unless?</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Github pipeline now has postgres configurations and specific rails commands for both rubocop and rspec testings.</li>
+        <li>The default documentation for RSpec was not helpful, therefore, the format has changed to be more robust, more info the better.</li>
+        <li>Installed Pry gem for more test help.</li>
+      </ul>
+      <br>
+    </ul>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Bug Fixes</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Just like in real life, we need to take care of these bugs. Only difference is, I only like computer bugs and enjoy on how I can fix them.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Navbar</strong></li>
+      <br>
+      <p><em>Even though this patch was about user account creation, navbar is shining quite brightly as it is a core unit that is holding down on what the user can do.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>The hamburger menu was not closing properly even after the user clicks on the X mark (Close button).</li>
+        <li>Changed the existing script to a function to ensure the closing and opening the hamburger menu works via turbo load of said function. Also added jquery.</li>
+      </ul>
+      <br>
+    </ul>
+  </div>
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>
