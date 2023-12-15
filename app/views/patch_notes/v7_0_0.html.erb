@@ -5,7 +5,7 @@
     <h4 class="text-xl font-bold">December 8, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 8)) %> ago</h4>
     <p><em>by: Patrick Kim</em></p>
     <br>
-    <p class="border-b-2 border-black">Patch notes is officially live. Wait, isn't there previous versions of patch notes? Yes... but it was never in production. Or was it..? Just kidding, it was never implemented until now, just kept the documentation at hand.</p>
+    <p class="border-b-2 border-black">Patch notes is officially live. Wait, what about previous versions of patch notes? Yes... but it was never in production. Or was it..? Just kidding, it was never implemented until now, just kept the documentation at hand.</p>
     <br>
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
@@ -25,7 +25,7 @@
       <br>
       <ul class="list-disc list-inside">
         <li>Migrated patch notes strictly on controller and view. No model, no database.</li>
-        <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the page does not exist.</li>
+        <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the page was not found.</li>
         <li>List of all patch versions that are linked will be listed on the right side of the page.</li>
         <li>Index page simply shows a list of patch note versions.</li>
       </ul>

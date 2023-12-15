@@ -10,7 +10,7 @@ class PatchNotesController < ApplicationController
       file_check = true if patch_note.include? params[:name].gsub('.', '_')
     end
 
-    render file: Rails.public_path.join('404.html'), layout: false and return unless file_check
+    not_found unless file_check
 
     render params[:name].gsub('.', '_') and return
   end
