@@ -31,10 +31,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: postgres
-        run: |
-          bin/rails db:create db:schema:load
-          yarn install
-          bundle exec rails assets:precompile
+        run: bin/rails db:create db:schema:load
       - name: rubocop
         run: bundle exec rubocop
       - name: Build and test with rspec
