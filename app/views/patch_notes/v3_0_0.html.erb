@@ -1,0 +1,47 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v3.0.0</h1>
+    <br>
+    <h4 class="text-xl font-bold">September 14, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 14)) %> ago</h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br>
+    <p class="border-b-2 border-black">Test, test, and more testing... We want to ensure we do not miss a devastating bug that will deteriorate the users experience.</p>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">New Implementations</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>RSpec, rubocop, lint, etc. What are the essential testing that you personally use to ensure your application has no bugs?</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Testing</strong></li>
+      <br>
+      <p><em>We're technically scientists since developers should test their application before going live. Call me a doctor.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Installed RSpec, Rubocop, and other testing configurations.</li>
+        <li>Rubocop ensured to correct a lot of files for better and cleaner code.</li>
+        <li>All RSpec for model, view, and controllers are an empty shell. Will including testing for all of them in the future.</li>
+        <li>Created a Github workflow so that it can go to an automatic lint testing (RSpec, Rubocop, etc) during the CI/CD pipeline process after pushing changes to the feature branch.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Application Version</strong></li>
+      <br>
+      <p><em>We want to start versioning our application, in case of a drawback, we know which version we can revert back to on production.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>File containing the application version. Will be utilized in footer of the website, show casing users what the current version the website is currently on.</li>
+      </ul>
+    </ul>
+  </div>
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

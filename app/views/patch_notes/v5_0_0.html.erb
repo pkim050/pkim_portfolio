@@ -1,0 +1,161 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v5.0.0</h1>
+    <br>
+    <h4 class="text-xl font-bold">October 3, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 10, 3)) %> ago</h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br>
+    <p class="border-b-2 border-black">Finally, a page that is not a homepage. Introducing, Patrick Kim's own blog! Creating a blog with Rails 7 with TailwindCSS was quite fun. It was fairly different and I enjoyed the struggles and experiences that I have gone through completing this.</p>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">New Implementations</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Not just a portfolio, but also a blog now, nifty.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Blog</strong></li>
+      <br>
+      <p><em>You still don't need to sign up, but if you want to comment or reply to a comment, looks like you'll need to.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Blog posts' body is using TinyMCE instead of default text editor.</li>
+        <li>Installed and configured pagy to paginate blog index page, if there are more than 10 posts, there will be a pagination where it lets users go to page 1 and up.</li>
+        <li>Create new blog post button shows up only when an admin user is logged in.</li>
+        <li>Blog posts are shown in the index page in descending order (Latest to oldest).</li>
+        <li>Blog post body contents are limited in the index page to a certain number of lines, forcing users to click on "Read More ->" to read the rest of the blog post.</li>
+        <li>Title and body fields have to be filled in order to create a blog post.</li>
+        <li>Blog posts and blog comments belongs to a user. Dependent on destroy action of user.</li>
+        <li>Blog comments also belongs to a blog post. Dependent on destroy action of blog post.</li>
+        <li>Implemented reply system where it is a comment to a blog comment. Blog comment can be a parent to blog comment(s) which is known as reply. Also dependent on destroy action.</li>
+        <li>In order to create a comment/reply, the body field needs to be filled out.</li>
+        <li>Utilized stimulus and turbo links for comments and replies to create, edit, and delete without directing the user to the current page and updates in real time.</li>
+        <li>When replying to a blog comment, the body will automatically fill out with "@user_name, " in order to indicate who the user is replying to.</li>
+        <li>Blog comments and replies will have a timestamp of when it was posted and updated.</li>
+        <li>Blog comments and replies have their respective identation. It will let users know which reply is for what comment and etc.</li>
+        <li>Blog comments and replies will also show the username whenever they get created.</li>
+        <li>Deleting their own comment/reply will not delete from the page, but rather, change the content to "Comment deleted by user" and updating the timestamp.</li>
+        <li>If admin deletes other users' comment/reply, the content will change to "Comment deleted by admin".</li>
+        <li>Buttons such as Edit, Destroy, Delete, Submit, Reply, and Back to blog posts are all dependent on user, whether they are signed in or not.</li>
+        <li>Errors are correctly shown when something goes wrong in their respective places.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Users</strong></li>
+      <br>
+      <p><em>Adding a library that helps with permissions.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Installed and configured Cancancan, an authorization library for Rails.</li>
+        <li>All users, including non-users are able to publicly read all blog posts and comments.</li>
+        <li>Logged in users are able to create, update, and delete their own comments.</li>
+        <li>Only admin users are able to maintain all abilities for any models. Obviously, this should change to be more specific in the future.</li>
+        <li>Only logged in users are able to make comments/replies. Logged out users will be directed to signing in form if they try to make a comment/reply.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Testing</strong></li>
+      <br>
+      <p><em>Learned about coverage for testing in my last job.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Installed database cleaner to ensure every RSpec testing starts fresh with database being cleaned after every test. Avoids weird errors during RSpec testing locally and through the pipeline.</li>
+        <li>Installed and configured Simplecov to help with validity of testing all the necessary code in each files.</li>
+        <li>Now utilizing rails helper and spec helper.</li>
+        <li>Added RSpec testing for blog post, blog comment, and user.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Generality</strong></li>
+      <br>
+      <p><em>Tiring of scrolling back up after scrolling all the way down? We got a button to help you with that. Notifications are important to let users know what went through and what did not.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Installed and configured TinyMCE, an online rich-text editor for generality.</li>
+        <li>Installed and configured Flowbite, an open source collection of UI components built with utility classes from Tailwind CSS.</li>
+        <li>Implemented a button that helps users scroll back to the top when clicking on a button that shows up on bottom right of the page. This is shown on any page and pops up when scrolling down for a certain distance.</li>
+        <li>Implemented notification alerts such as when something got successfully created by the user, deleted by the user, or if there were any errors that the user could not successfully do.</li>
+        <li>Alerts are color coded where to two color; green means a notice in general, and red means an error.</li>
+        <li>Alerts are shown above the navbar, temporarily shifting it so that it notifies the user which alert happened. Then the navbar is shifted back to its place.</li>
+      </ul>
+      <br>
+    </ul>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Need to update in order to get some functionalities to work, it's worth it, trust me.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Navbar</strong></li>
+      <br>
+      <p><em>As promised, navbar will be updated after configuring Devise. Users can actually create an account now!</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Clicking the icon on the top left of the navbar will direct user to homepage instead of scrolling back to the top of the page.</li>
+        <li>Navbar now displays Edit Profile and Sign Out buttons on the right side when user is logged in.</li>
+        <li>Blog link from the middle of the navbar now directs users to the index page.</li>
+        <li>Changed text color of Sign In on the right side of the navbar from gray to black.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Landing Page</strong></li>
+      <br>
+      <p><em>Crossing out some of the list from my todo list, carry on.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Added more bullet points on my todo list and crossed out some of the items that I have finished.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>User</strong></li>
+      <br>
+      <p><em>It has something to do with devise configurations.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Added username to be case insensitive during create or update.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Testing</strong></li>
+      <br>
+      <p><em>Github pipeline was complaining about postgres stuff again...</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Updated pipeline with a more robust postgres setup.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Generality</strong></li>
+      <br>
+      <p><em>Going to give updates that does not affect only one page or configuration changes.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Changed naming convention of databases for all environments.</li>
+      </ul>
+      <br>
+    </ul>
+    <br>
+  </div>
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

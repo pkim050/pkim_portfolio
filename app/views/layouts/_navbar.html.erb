@@ -81,8 +81,13 @@
       </div>
       <div class="mt-auto">
         <div class="pt-6">
-          <%= link_to "Sign In", new_user_session_path, class: "block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-green-500 hover:bg-[#bf04ff] rounded-xl" %>
-          <%= link_to "Sign Up", new_user_registration_path, class: "block px-4 py-3 mb-8 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-[#bf04ff] rounded-xl" %>
+          <% if current_user %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-[#bf04ff] hover:bg-pink-300 rounded-xl" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "block px-4 py-3 mb-8 leading-loose text-xs text-center text-black font-semibold bg-red-500 hover:bg-[#bf04ff] rounded-xl" %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-green-500 hover:bg-[#bf04ff] rounded-xl" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "block px-4 py-3 mb-8 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-[#bf04ff] rounded-xl" %>
+          <% end %>
         </div>
       </div>
     </nav>
