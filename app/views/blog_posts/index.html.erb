@@ -2,6 +2,10 @@
   <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
 <% end %>
 
+<% if BlogPost.count.zero? %>
+  <h1>Looks like there are no blog posts from Patrick, let him know so that he can create his first blog post!</h1>
+<% end %>
+
 <div id="blog_posts" class="container mx-auto px-60 m-20 divide-y divide-[#bf04ff]">
   <% records.each do |blog_post| %>
     <%= render blog_post %>

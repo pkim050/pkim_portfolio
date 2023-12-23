@@ -74,7 +74,7 @@ namespace :deploy do
   desc 'Start server'
   task :server do
     on roles(:all) do
-      execute :bundle, :exec, 'bin/prod', 'RAILS_ENV=production'
+      execute 'cd /var/www/patrickaaronkim.com/current && bin/prod'
     end
   end
 end
