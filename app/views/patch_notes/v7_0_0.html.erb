@@ -28,6 +28,7 @@
         <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the page was not found.</li>
         <li>List of all patch versions that are linked will be listed on the right side of the page.</li>
         <li>Index page simply shows a list of patch note versions.</li>
+        <li>Added a patch notes icon to indicate topic title.</li>
       </ul>
       <br>
       <p class="border-b-2 border-black"></p>
@@ -50,41 +51,63 @@
     <br>
     <ul class="border border-black p-4">
       <div class="divide-y-2 divide-black">
-        <p><em>Need to update in order to get some functionalities to work, it's worth it, trust me.</em></p>
+        <p><em>Made a lot of different changes, still got more work to do.</em></p>
         <br>
         <p></p>
       </div>
       <br>
-      <li><strong>Navbar</strong></li>
+      <li><strong>README</strong></li>
       <br>
-      <p><em>As promised, navbar will be updated after configuring Devise. Users can actually create an account now!</em></p>
+      <p><em>There is a readme page that was part of the v1.0.0 / initial creation of the application. Updating it to include the production link.</em></p>
       <br>
       <ul class="list-disc list-inside">
-        <li>Configured to display all RSpec messages as default only showed what failed and what passed in a dot/x format.</li>
-        <li>Clicking the icon on the top left of the navbar will direct user to homepage instead of scrolling back to the top of the page.</li>
-        <li>Navbar now displays Edit Profile and Sign Out buttons on the right side when user is logged in.</li>
+        <li>Link to production / go live is added onto readme.</li>
+        <li>Added empty lines in tech stack list.</li>
       </ul>
       <br>
       <p class="border-b-2 border-black"></p>
       <br>
-      <li><strong>Landing Page</strong></li>
+      <li><strong>Blog</strong></li>
       <br>
-      <p><em>Silly typos...</em></p>
+      <p><em>What happens if there are no blog posts?</em></p>
       <br>
       <ul class="list-disc list-inside">
-        <li>Updated a typo.</li>
+        <li>Added a message indicating that the user should let the app owner know that there are no blog posts when there are no blog posts.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Navbar</strong></li>
+      <br>
+      <p><em>Missed a spot.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Updated the hamburger menu where the sign in and sign up buttons changed to edit profile and logout buttons when user is logged in and vice versa.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Generality</strong></li>
+      <br>
+      <p><em>Sometimes the frontend code breaks when adding in new features.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Adjusted the back to top button to take footer into account. It will now show up just above the footer instead of being on the same line as the footer.</li>
+        <li>Updated command to automate server starting on production.</li>
       </ul>
       <br>
       <p class="border-b-2 border-black"></p>
       <br>
       <li><strong>Testing</strong></li>
       <br>
-      <p><em>This is more for the developers moving forward... unless?</em></p>
+      <p><em>Tests and more tests!</em></p>
       <br>
       <ul class="list-disc list-inside">
-        <li>Github pipeline now has postgres configurations and specific rails commands for both rubocop and rspec testings.</li>
-        <li>The default documentation for RSpec was not helpful, therefore, the format has changed to be more robust, more info the better.</li>
-        <li>Installed Pry gem for more test help.</li>
+        <li>Added yarn commands before RSpec test starts, as asset pipeline is needed for view testing.</li>
+        <li>Added Capybara for easier and better view testing.</li>
+        <li>Added patch notes testing for controller and view.</li>
+        <li>Added blog post testing for views such as index, show, new, and edit.</li>
+        <li>Show page testing is halfway done as it involves turbo testing and that probably needs an extra branch to finish.</li>
       </ul>
       <br>
     </ul>
@@ -96,18 +119,17 @@
     <br>
     <ul class="border border-black p-4">
       <div class="divide-y-2 divide-black">
-        <p><em>Just like in real life, we need to take care of these bugs. Only difference is, I only like computer bugs and enjoy on how I can fix them.</em></p>
+        <p><em>Looks like I found some bugs that I did not catch before going live.</em></p>
         <br>
         <p></p>
       </div>
       <br>
-      <li><strong>Navbar</strong></li>
+      <li><strong>Blog</strong></li>
       <br>
-      <p><em>Even though this patch was about user account creation, navbar is shining quite brightly as it is a core unit that is holding down on what the user can do.</em></p>
+      <p><em>Found a bug in the comment / reply section!</em></p>
       <br>
       <ul class="list-disc list-inside">
-        <li>The hamburger menu was not closing properly even after the user clicks on the X mark (Close button).</li>
-        <li>Changed the existing script to a function to ensure the closing and opening the hamburger menu works via turbo load of said function. Also added jquery.</li>
+        <li>Fixed a bug where a syntax error happens whenever a certain variable is nil. This happens for a certain scenario, it will now function as expected.</li>
       </ul>
       <br>
     </ul>

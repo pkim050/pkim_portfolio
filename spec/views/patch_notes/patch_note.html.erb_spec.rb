@@ -2,40 +2,32 @@
 
 require 'rails_helper'
 
-RSpec.describe 'patch_notes/patch_note', type: :feature do
+RSpec.describe 'patch_notes/v1_0_0' do
+  before do
+    render
+  end
+
   it 'renders patch note title' do
-    expect(1 + 1).to eq(2)
+    expect(rendered).to have_css('h1.text-4xl.font-bold.text-center', text: 'Patch Notes v1.0.0')
   end
 
   it 'renders date posted' do
-    expect(1 + 2).to eq(3)
+    expect(rendered).to have_css('h4.text-xl.font-bold', text: 'September 13, 2023')
   end
 
   it 'renders age of patch note' do
-    expect(1 + 3).to eq(4)
+    expect(rendered).to have_css('h4.text-xl.font-bold', text: distance_of_time_in_words_to_now(Date.new(2023, 9, 13)))
   end
 
   it 'renders patch note content' do
-    expect(1 + 4).to eq(5)
+    expect(rendered).to have_css('.border-b-2.border-black')
   end
 
   it 'renders Versions as title on right side of the page' do
-    expect(1 + 5).to eq(6)
+    expect(rendered).to have_css('h1.text-4xl.font-bold', text: 'Versions')
   end
 
   it 'renders patch version link on right side of the page' do
-    expect(1 + 6).to eq(7)
-  end
-
-  context 'when user clicks on a patch note version link' do
-    it 'directs user to show page' do
-      expect(1 + 1).to eq(2)
-    end
-  end
-
-  context 'when user inputs a version that does not exist' do
-    it 'directs user to 404 page not found page' do
-      expect(1 + 1).to eq(2)
-    end
+    expect(rendered).to have_css('a.underline.text-black', text: 'v1.0.0')
   end
 end

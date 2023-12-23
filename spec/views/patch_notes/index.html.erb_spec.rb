@@ -2,18 +2,16 @@
 
 require 'rails_helper'
 
-RSpec.describe 'patch_notes/index', type: feature do
+RSpec.describe 'patch_notes/index' do
+  before do
+    render
+  end
+
   it 'renders Patch Notes title' do
-    expect(1 + 1).to eq(2)
+    expect(rendered).to have_text('Patch Notes')
   end
 
   it 'renders patch notes link' do
-    expect(1 + 2).to eq(3)
-  end
-
-  context 'when a patch note version is clicked' do
-    it 'directs user to show page' do
-      expect(1 + 1).to eq(2)
-    end
+    expect(rendered).to have_text('v1.0.0')
   end
 end
