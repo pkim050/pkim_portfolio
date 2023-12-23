@@ -3,7 +3,7 @@
   <ul>
     <li><a class="underline text-black hover:text-[#bf04ff]" href="/patch_notes">Index</a></li>
     <br>
-    <% Dir.children('./app/views/patch_notes/').sort { |a, b| b <=> a }.each do |patch_note| %>
+    <% Dir.children(Rails.root.join('app', 'views', 'patch_notes')).sort { |a, b| b <=> a }.each do |patch_note| %>
       <% if patch_note.split('.html.erb').first.match(/v[0-9]+.[0-9]+.[0-9]+/) %>
         <li><a class="underline text-black hover:text-[#bf04ff]" href="/patch_notes/<%= patch_note.split('.html.erb').first.gsub('_', '.') %>"><%= patch_note.split('.html.erb').first.gsub('_', '.') %></a></li>
         <br>
