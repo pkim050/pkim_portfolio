@@ -1,5 +1,16 @@
 name: Code style
-on: [pull_request]
+on:
+  push:
+    paths:
+    - '*'
+    - '!main'
+    - '!master'
+  pull_request:
+    paths:
+    - '*'
+    - '!main'
+    - '!master'
+
 jobs:
   lint:
     name: all linters

@@ -16,7 +16,10 @@ RSpec.describe 'patch_notes/v1_0_0' do
   end
 
   it 'renders age of patch note' do
-    expect(rendered).to have_css('h4.text-xl.font-bold', text: distance_of_time_in_words_to_now(Date.new(2023, 9, 13)))
+    expect(rendered).to have_css(
+      'h4.text-xl.font-bold',
+      text: distance_of_time_in_words_to_now(Date.new(2023, 9, 13).in_time_zone('Pacific Time (US & Canada)'))
+    )
   end
 
   it 'renders patch note content' do

@@ -2,7 +2,7 @@
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v2.0.0</h1>
     <br>
-    <h4 class="text-xl font-bold">September 13, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 13)) %> ago</h4>
+    <h4 class="text-xl font-bold">September 13, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 13).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
     <p><em>by: Patrick Kim</em></p>
     <br>
     <p class="border-b-2 border-black">Navigation bar implemented! Aside from the colors, I tried to make it as simplistic as possible. Also considered to have a hamburger menu for smaller screens. What is your favorite type of navigation?</p>
