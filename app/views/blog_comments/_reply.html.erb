@@ -1,9 +1,9 @@
 <div class="rounded overflow-hidden shadow-lg", id="comment-<%= reply.id %>">
   <div class="px-6 py-4">
     <div class="flex">
-      <strong><%= reply.user.username %> ·</strong>&nbsp<%= distance_of_time_in_words_to_now(reply.created_at.in_time_zone('Pacific Time (US & Canada)')) %> ago
+      <strong><%= reply.user.username %> ·</strong>&nbsp<%= distance_of_time_in_words_to_now(reply.created_at) %> ago
       <% if reply.created_at != reply.updated_at %>
-        <em class="ml-auto">Last Updated: <%= distance_of_time_in_words_to_now(reply.updated_at.in_time_zone('Pacific Time (US & Canada)')) %> ago</em>
+        <em class="ml-auto">Last Updated: <%= distance_of_time_in_words_to_now(reply.updated_at) %> ago</em>
       <% end %>
     </div>
     <%= simple_format reply.body, id: "comment-body-#{reply.id}" %>
