@@ -3,10 +3,10 @@
   </br>
   <p>Three to four years of Software Engineer experience with Ruby on Rails and many more. Love what I do and have a lot of passion to continuously learn.</p>
   <p>
-    For more info, please click my photo below!
+    For more info about my career, please click my photo below!
   </p>
   </br>
-  <%= image_tag "pat_kim.png", class: "rounded-full max-w-xs" %>
+  <%= link_to(image_tag("pat_kim.png", class: "rounded-full max-w-xs"), about_me_path) %>
   </br>
   <p>This will also have links that will direct the user to other pages such as Q&A Forum, blog, resume, etc</p>
   </br>
@@ -44,6 +44,7 @@
     <li>Finish RSpec testing for Blog Posts and Blog Comments / Replies</li>
     <li>Finish RSpec testing for home page including navigation bar and footer.</li>
     <li class="line-through">Create a vertical timeline for about me page.</li>
+    <li class="line-through">Don't forget to update your photo to be linkable to about me path.</li>
     <li>Briefly explain past projects and promise to create them under this current application in the future.</li>
     <li>Many more to come...</li>
   </ul>
