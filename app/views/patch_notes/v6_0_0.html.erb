@@ -2,7 +2,7 @@
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v6.0.0</h1>
     <br>
-    <h4 class="text-xl font-bold">November 17, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 11, 17)) %> ago</h4>
+    <h4 class="text-xl font-bold">November 17, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 11, 17).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
     <p><em>by: Patrick Kim</em></p>
     <br>
     <p class="border-b-2 border-black">Configurations for production. Going live is not easy, especially when you are starting from scratch. Luckily, I had some experience with my previous work where I was able to configure production with rails application using Docker, Kubernetes, and Azure Cloud services. I should be able to do it with my virtual private server... right?</p>
