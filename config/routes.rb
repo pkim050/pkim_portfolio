@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'patch_notes/:name', to: 'patch_notes#patch_note', constraints: { name: %r{[^\/]+} }, as: :patch_note
 
+  get 'about_me', to: 'about_me#index'
+
   resources :blog_posts do
     resources :blog_comments
   end
