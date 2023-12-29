@@ -1,0 +1,140 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v8.2.0</h1>
+    <br>
+    <h4 class="text-xl font-bold">December 29, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 29).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br>
+    <p class="border-b-2 border-black">Patch notes is officially live. Wait, what about previous versions of patch notes? Yes... but it was never in production. Or was it..? Just kidding, it was never implemented until now, just kept the documentation at hand.</p>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">New Implementations</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>As mentioned in previous patch notes, documentation is incredibly important. It helps everyone to be on the same page and know what is supposed to work and what is not. Also helps identify what bugs users experiences.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Patch Notes</strong></li>
+      <br>
+      <p><em>Enough quote blocks, lets just move on to the documentations shall we?</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Migrated patch notes strictly on controller and view. No model, no database.</li>
+        <li>If user types a version that does not exist in the URL, they will be directed to a 404 page where it tells the user the page was not found.</li>
+        <li>List of all patch versions that are linked will be listed on the right side of the page.</li>
+        <li>Index page simply shows a list of patch note versions.</li>
+        <li>Added a patch notes icon to indicate topic title.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Footer</strong></li>
+      <br>
+      <p><em>Footer is finally added. Just like navbar, we want the footer to be always shown on the bottom.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Copyright is portrayed on the left side of the footer. My name is linked to the root page.</li>
+        <li>Current version of the application is located on the right side of the footer and it is linked to their respective patch notes version page.</li>
+      </ul>
+    </ul>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Made a lot of different changes, still got more work to do.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>README</strong></li>
+      <br>
+      <p><em>There is a readme page that was part of the v1.0.0 / initial creation of the application. Updating it to include the production link.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Link to production / go live is added onto readme.</li>
+        <li>Added empty lines in tech stack list.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Blog</strong></li>
+      <br>
+      <p><em>What happens if there are no blog posts?</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Added a message indicating that the user should let the app owner know that there are no blog posts when there are no blog posts.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Navbar</strong></li>
+      <br>
+      <p><em>Missed a spot.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Updated the hamburger menu where the sign in and sign up buttons changed to edit profile and logout buttons when user is logged in and vice versa.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Generality</strong></li>
+      <br>
+      <p><em>Sometimes the frontend code breaks when adding in new features.</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Adjusted the back to top button to take footer into account. It will now show up just above the footer instead of being on the same line as the footer.</li>
+        <li>Updated command to automate server starting on production.</li>
+      </ul>
+      <br>
+      <p class="border-b-2 border-black"></p>
+      <br>
+      <li><strong>Testing</strong></li>
+      <br>
+      <p><em>Tests and more tests!</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Added yarn commands before RSpec test starts, as asset pipeline is needed for view testing.</li>
+        <li>Added Capybara for easier and better view testing.</li>
+        <li>Added patch notes testing for controller and view.</li>
+        <li>Added blog post testing for views such as index, show, new, and edit.</li>
+        <li>Show page testing is halfway done as it involves turbo testing and that probably needs an extra branch to finish.</li>
+        <li>Added home page view testing.</li>
+        <li>Added navigation view testing.</li>
+        <li>Added footer view testing.</li>
+      </ul>
+    </ul>
+    <br>
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Bug Fixes</h2>
+    </div>
+    <br>
+    <ul class="border border-black p-4">
+      <div class="divide-y-2 divide-black">
+        <p><em>Looks like I found some bugs that I did not catch before going live.</em></p>
+        <br>
+        <p></p>
+      </div>
+      <br>
+      <li><strong>Blog</strong></li>
+      <br>
+      <p><em>Found a bug in the comment / reply section!</em></p>
+      <br>
+      <ul class="list-disc list-inside">
+        <li>Fixed a bug where a syntax error happens whenever a certain variable is nil. This happens for a certain scenario, it will now function as expected.</li>
+      </ul>
+    </ul>
+  </div>
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

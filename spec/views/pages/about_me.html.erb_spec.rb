@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'about_me/index' do
+RSpec.describe 'pages/about_me' do
   before do
     render
   end
