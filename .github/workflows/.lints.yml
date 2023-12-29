@@ -1,15 +1,8 @@
 name: Code style
 on:
-  push:
-    paths:
-    - '*'
-    - '!main'
-    - '!master'
   pull_request:
-    paths:
-    - '*'
-    - '!main'
-    - '!master'
+    branches-ignore:
+      - 'master'
 
 jobs:
   lint:
