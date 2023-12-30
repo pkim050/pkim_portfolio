@@ -1,112 +1,155 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v8.0.0</h1>
-    <br>
-    <h4 class="text-xl font-bold">December 28, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 28).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <br />
+
+    <h4 class="text-xl font-bold">
+      December 28, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 28).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
     <p><em>by: Patrick Kim</em></p>
-    <br>
+    <br />
+
     <p class="border-b-2 border-black">About Me page is officially done.</p>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">New Implementation</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>Never done any type of timeline before, this was fun.</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>Never done any type of timeline before, this was fun.</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>About Me</strong></li>
-      <br>
+      <br />
+
       <p><em>If anyone cares to see how my journey went so far, please have a look!</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Added a vertical timeline for my software engineer career.</li>
         <li>Each timeline period has a picture and the other side is a brief explanation of what happened.</li>
       </ul>
     </ul>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Updates</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>I think general changes like application version will always be documented, should I disclude them?</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>I think general changes like application version will always be documented, should I disclude them?</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Patch Note</strong></li>
-      <br>
+      <br />
+
       <p><em>There will always be new patch note every release.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Added patch notes for About Me branch; v8.0.0.</li>
         <li>Got rid of extra line break at the end of each border from all patch notes.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Navbar</strong></li>
-      <br>
+      <br />
+
       <p><em>About Me link works now right?</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
-        <li>Updated navbar to have a functional link when clicking on About Me either through hamburger menu or traditional navigation. User will be directed to the about me page.</li>
+        <li>
+          Updated navbar to have a functional link when clicking on About Me either through hamburger menu or traditional
+          navigation. User will be directed to the about me page.
+        </li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Production</strong></li>
-      <br>
+      <br />
+
       <p><em>Minor details.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
-        <li>Updated file permissions of bin/prod to have the same exact permissions as bin/dev so that deployer role can access and run prod file.</li>
+        <li>
+          Updated file permissions of bin/prod to have the same exact permissions as bin/dev so that deployer role can
+          access and run prod file.
+        </li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Testing</strong></li>
-      <br>
+      <br />
+
       <p><em>Have to include testing even if it is just one page.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Added RSpec testing for About Me controller.</li>
         <li>Added RSpec testing for About Me view index page.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Home Page</strong></li>
-      <br>
+      <br />
+
       <p><em>Todo list will always be updated I suppose...? I will get rid of it eventually.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Updated todo list to cross out creating an about me page.</li>
         <li>Picture of myself is now linkable and will take user to about me page.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Generality</strong></li>
-      <br>
+      <br />
+
       <p><em>Adding interactive buttons is always fun right?</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Back to top button is now animated where it is a bouncing button.</li>
         <li>Updated application version from 7.0.1 to 8.0.0.</li>
         <li>Updated navbar and footers positions from sticky to relative fixed.</li>
         <li>Updated pages to have some sort of margin top in order to avoid navbar over taking any content in the top.</li>
-        <li>Updated pages to have some sort of margin from the bottom in order to avoid footer over taking any content in the bottom.</li>
+        <li>
+          Updated pages to have some sort of margin from the bottom in order to avoid footer over taking any content in the
+          bottom.
+        </li>
       </ul>
     </ul>
   </div>
+
   <div>
     <%= render partial: 'versions' %>
   </div>

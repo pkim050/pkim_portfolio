@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe PagesController do
   describe 'routes' do
     it { is_expected.to route(:get, '/').to(action: :home) }
-    it { is_expected.to route(:get, '/about_me').to(action: :about_me) }
+    it { is_expected.to route(:get, '/about').to(action: :about) }
     it { is_expected.to route(:get, '/projects').to(action: :projects) }
   end
 
@@ -23,13 +23,13 @@ RSpec.describe PagesController do
     end
   end
 
-  describe 'GET #about_me' do
+  describe 'GET #about' do
     before do
-      get :about_me
+      get :about
     end
 
     it 'renders About Me page' do
-      expect(response).to render_template(:about_me)
+      expect(response).to render_template(:about)
     end
 
     it 'returns 200 status code' do

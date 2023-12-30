@@ -1,59 +1,112 @@
-<div class="grid place-items-center mt-20">
+<div class="grid place-items-center mt-4">
   <h1 class="text-3xl">Software Engineer</h1>
-  </br>
-  <p>Three to four years of Software Engineer experience with Ruby on Rails and many more. Love what I do and have a lot of passion to continuously learn.</p>
+  <br />
   <p>
-    For more info about my career, please click my photo below!
+    Four years of Full Stack Software Engineer experience with Ruby on Rails and many more. Love what I do and have a lot of
+    passion to continuously learn and apply new technologies.
   </p>
-  </br>
-  <%= link_to(image_tag("pat_kim.png", class: "rounded-full max-w-xs"), about_me_path) %>
-  </br>
-  <p>This will also have links that will direct the user to other pages such as Q&A Forum, blog, resume, etc</p>
-  </br>
-  <p>Wanted to created a <strong>TODO</strong> list (In <em>unordered</em> list):</p>
-  <ul class="list-disc">
-    <li class="line-through">Create a navigation bar</li>
-    <li class="line-through">Create and upload brand/icon for navigation and icon on tab</li>
-    <li class="line-through">Install devise for user registration/login and possibly authentications</li>
-    <li>Install dark mode / light mode toggle</li>
-    <li class="line-through">Create a blog post MVC reference with user</li>
-    <li class="line-through">Create blog comment, reference with user and blog post</li>
-    <li class="line-through">Have the comments be creatable/editable/deletable all under blog post show page using turbo stream</li>
-    <li class="line-through">Have the comments be actionable when user logged in, if not, they will be directed to login</li>
-    <li class="line-through">Implement pagination for blog index page</li>
-    <li class="line-through">Implement line clamp and text word break</li>
-    <li class="line-through">Implement a scroll to top button</li>
-    <li>Create Q&A Forum</li>
-    <li class="line-through">Link resume, ensure users see the PDF version in new browser tab.</li>
-    <li>Link wedding website</li>
-    <li>Style pages with your own concepts</li>
-    <li class="line-through">Create a footer</li>
-    <li class="line-through">Implement patch notes section</li>
-    <li class="line-through">Input web application version on footer. make it linkable towards patch notes sections</li>
-    <li class="line-through">Install rich text editor for your blogs and any other models that might need them; try tinymce</li>
-    <li class="line-through">Implement cancancan gem to limit abilities for users</li>
-    <li class="line-through">Install and configure Capistrano in order to automate deployment in production</li>
-    <li class="line-through">Have the web application live on production</li>
-    <li>Install sidekiq and redis</li>
-    <li>Install paper-trail gem</li>
-    <li class="line-through">Maybe install docker? (Nah, not needed)</li>
-    <li class="line-through">Utilize Nginx and Apache 2 and proxy them towards port 3000</li>
-    <li class="line-through">Install SSL and enable the HTTPS</li>
-    <li class="line-through">Install and configure RSpec testing along with Rubocop and Capybara</li>
-    <li class="line-through">Finish RSpec testing for Patch Notes</li>
-    <li>Finish RSpec testing for Blog Posts and Blog Comments / Replies</li>
-    <li>Finish RSpec testing for home page including navigation bar and footer.</li>
-    <li class="line-through">Create a vertical timeline for about me page.</li>
-    <li class="line-through">Don't forget to update your photo to be linkable to about me path.</li>
-    <li>Briefly explain past projects and promise to create them under this current application in the future.</li>
-    <li>Github workflow is happening during pushing changes to master branch. Let's get rid of it since that workflow is specficially for any feature branches that is pushing to main branch.</li>
-    <li>Github master workflow is failing, lets fix that too. This correlates to the bullet point above, this is only happening during master branch being the source, we want the same for above but only for when main branch is the source.</li>
-    <li class="line-through">Looks like patch notes timestamps are in UTC, perhaps the blog posts / blog comments are as well. Lets convert all timestamps to PST instead.</li>
-    <li>Many more to come...</li>
-  </ul>
-  </br></br>
-  <strong>Thought processes:</strong>
-  <ul class="list-disc">
-    <li>Maybe have association of order instead of specifying in views everytime</li>
-  </ul>
+
+  <p>For more info about my career, please click my photo below!</p>
+  <br />
+  <%= link_to(image_tag("pat_kim.png", class: "rounded-full max-w-xs"), about_path) %>
+  <br />
+
+  <p class="text-center">
+    This website is not only a portfolio but also a personal note for myself. Blogs will document my experiences of
+    struggles, remediations/resolutions to issues, and the home page will have a giant todo unordered list of what I want to
+    do with this website. If you are interested, you can click the Show button below. Otherwise, please feel free to
+    check out the About page, Blog page, Projects page, and the Resume page via navigation bar up top.
+  </p>
+  <br />
+
+  <span class="font-bold border border-black text-[#bf04ff]" id="dropdown">Show</span>
+  <div class="hidden group-hover:block text-center">
+    <p>Wanted to created a <strong>TODO</strong> list (In <em>unordered</em> list):</p>
+    <ul class="list-disc list-inside text-left">
+      <li class="line-through">Create a navigation bar</li>
+      <li class="line-through">Create and upload brand/icon for navigation and icon on tab</li>
+      <li class="line-through">Install devise for user registration/login and possibly authentications</li>
+      <li>Install dark mode / light mode toggle</li>
+      <li class="line-through">Create a blog post MVC reference with user</li>
+      <li class="line-through">Create blog comment, reference with user and blog post</li>
+      <li class="line-through">
+        Have the comments be creatable/editable/deletable all under blog post show page using turbo stream
+      </li>
+      <li class="line-through">
+        Have the comments be actionable when user logged in, if not, they will be directed to login
+      </li>
+      <li class="line-through">Implement pagination for blog index page</li>
+      <li class="line-through">Implement line clamp and text word break</li>
+      <li class="line-through">Implement a scroll to top button</li>
+      <li>Create Q&A Forum</li>
+      <li class="line-through">Link resume, ensure users see the PDF version in new browser tab</li>
+      <li class="line-through">Link wedding website</li>
+      <li>Style pages with your own concepts</li>
+      <li class="line-through">Create a footer</li>
+      <li class="line-through">Implement patch notes section</li>
+      <li class="line-through">Input web application version on footer. Make it linkable towards patch notes sections</li>
+      <li class="line-through">
+        Install rich text editor for your blogs and any other models that might need them; try tinymce
+      </li>
+      <li class="line-through">Implement cancancan gem to limit abilities for users</li>
+      <li class="line-through">Install and configure Capistrano in order to automate deployment in production</li>
+      <li class="line-through">Have the web application live on production</li>
+      <li>Install sidekiq and redis</li>
+      <li>Install paper-trail gem</li>
+      <li class="line-through">Maybe install docker? (Nah, not needed)</li>
+      <li class="line-through">Utilize Nginx and Apache 2 and proxy them towards port 3000</li>
+      <li class="line-through">Install SSL and enable the HTTPS</li>
+      <li class="line-through">Install and configure RSpec testing along with Rubocop and Capybara</li>
+      <li class="line-through">Finish RSpec testing for Patch Notes</li>
+      <li>Finish RSpec testing for Blog Posts and Blog Comments / Replies</li>
+      <li>Finish RSpec testing for home page including navigation bar and footer</li>
+      <li class="line-through">Create a vertical timeline for about me page</li>
+      <li class="line-through">Don't forget to update your photo to be linkable to about me path</li>
+      <li class="line-through">
+        Briefly explain past projects and promise to create them under this current application in the future
+      </li>
+      <li class="line-through">
+        Github workflow is happening during pushing changes to master branch. Let's get rid of it since that workflow is
+        specficially for any feature branches that is pushing to main branch
+      </li>
+      <li>
+        Github master workflow is failing, lets fix that too. This correlates to the bullet point above, this is only
+        happening during master branch being the source, we want the same for above but only for when main branch is the
+        source
+      </li>
+      <li class="line-through">
+        Looks like patch notes timestamps are in UTC, perhaps the blog posts / blog comments are as well. Lets convert all
+        timestamps to PST instead
+      </li>
+      <li >
+        Have text explanation thats on the left side of the vertical timeline to be be more on right side of border
+      </li>
+      <li>Stylize devise forms (Sign In, Sign Up, Edit Profile, etc)</li>
+      <li class="line-through">Only have the pictures be linkable and not the entire div in Projects page</li>
+      <li class="line-through">Refactor html files so that it is more readable and has cleaner code</li>
+      <li class="line-through">Maybe hide the todo list and only show it with a button click</li>
+      <li class="line-through">Rename About Me to About instead</li>
+      <li>Have LinkedIn social logo and email logo in footer section, before the version number</li>
+      <li>Many more to come...</li>
+    </ul>
+
+    <br />
+    <br />
+    <strong>Thought processes:</strong>
+    <ul>
+      <li>Maybe have association of order instead of specifying in views everytime</li>
+    </ul>
+    <br />
+    <span class="font-bold border border-black text-[#bf04ff]" id="dropdown2">Hide</span>
+  </div>
+
+  <br />
+  <br />
+
+  <p>
+    Side note: I got married in 2023! Check out our wedding website:
+    <a class="underline hover:text-[#bf04ff] active:text-pink-300" href="https://www.hazelandpatrick.com/" target="_blank" rel="noopener">
+      https://www.hazelandpatrick.com/
+    </a>
+  </p>
 </div>

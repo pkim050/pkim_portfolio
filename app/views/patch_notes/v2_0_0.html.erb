@@ -1,61 +1,113 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v2.0.0</h1>
-    <br>
-    <h4 class="text-xl font-bold">September 13, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 13).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <br />
+
+    <h4 class="text-xl font-bold">
+      September 13, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 13).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
     <p><em>by: Patrick Kim</em></p>
-    <br>
-    <p class="border-b-2 border-black">Navigation bar implemented! Aside from the colors, I tried to make it as simplistic as possible. Also considered to have a hamburger menu for smaller screens. What is your favorite type of navigation?</p>
-    <br>
+    <br />
+
+    <p class="border-b-2 border-black">
+      Navigation bar implemented! Aside from the colors, I tried to make it as simplistic as possible. Also considered to
+      have a hamburger menu for smaller screens. What is your favorite type of navigation?
+    </p>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">New Implementations</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>I don't always go to the bar, but when I do, I prefer Navbar...-ba dum tss-...no? Okay, moving on!</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>I don't always go to the bar, but when I do, I prefer Navbar...-ba dum tss-...no? Okay, moving on!</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Navigation Bar aka Navbar</strong></li>
-      <br>
-      <p><em>Some people love to go all out on a navbar. Sometimes, I think having the most simplistic one would give users the easiest experience with your website.</em></p>
-      <br>
+      <br />
+
+      <p>
+        <em>
+          Some people love to go all out on a navbar. Sometimes, I think having the most simplistic one would give users
+          the easiest experience with your website.
+        </em>
+      </p>
+      <br />
+
       <ul class="list-disc list-inside">
-        <li>Used application's icon to display on the top left of the navbar and top of the navbar in smaller screens and made it clickable that takes user to the homepage. Does not redirect to the homepage, just scrolls back to the top of the page. Will change that in the future.</li>
-        <li>Displayed clickable links of Home, About Me, Blog, Projects, and Resume that will direct users to their respective page, although, they currently do nothing at this moment.</li>
-        <li>Implemented a hamburger icon when the screen is at a certain size of width or smaller. Navbar becomes vertical.</li>
-        <li>On the right side of the navbar, There are two buttons; Sign In and Sign Up. Will have that changed to Edit Profile and Sign Out after implementing Devise.</li>
+        <li>
+          Used application's icon to display on the top left of the navbar and top of the navbar in smaller screens and
+          made it clickable that takes user to the homepage. Does not redirect to the homepage, just scrolls back to the
+          top of the page. Will change that in the future.
+        </li>
+        <li>
+          Displayed clickable links of Home, About Me, Blog, Projects, and Resume that will direct users to their
+          respective page, although, they currently do nothing at this moment.
+        </li>
+        <li>
+          Implemented a hamburger icon when the screen is at a certain size of width or smaller. Navbar becomes vertical.
+        </li>
+        <li>
+          On the right side of the navbar, There are two buttons; Sign In and Sign Up. Will have that changed to Edit
+          Profile and Sign Out after implementing Devise.
+        </li>
         <li>Made it so that the navbar will always show up even when user is scrolling down.</li>
       </ul>
     </ul>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Updates</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>Updates will be an ongoing element in patch notes moving forward. Updating or even bug fixing a code does happen quite often that developers might not have noticed or missed.</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p>
+        <em>
+          Updates will be an ongoing element in patch notes moving forward. Updating or even bug fixing a code does
+          happen quite often that developers might not have noticed or missed.
+        </em>
+      </p>
+      <br />
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Landing Page</strong></li>
-      <br>
-      <p><em>Background color default is a straight up a flashbang isn't it? I had it gray but the gray was a little too bright still.</em></p>
-      <br>
+      <br />
+
+      <p>
+        <em>
+          Background color default is a straight up a flashbang isn't it? I had it gray but the gray was a little too
+          bright still.
+        </em>
+      </p>
+      <br />
+
       <ul class="list-disc list-inside">
-        <li>Changed background color to a darker shade of gray. Making it more readable and easier on the eyes compared to the gray it was on.</li>
-        <li>Inputted some margin on the top side so that there is some space between the landing page's content and the navbar.</li>
-        <li>Implemented a hamburger icon when the screen is at a certain size of width or smaller. Navbar becomes vertical that pop ups.</li>
+        <li>
+          Changed background color to a darker shade of gray. Making it more readable and easier on the eyes compared to
+          the gray it was on.
+        </li>
+        <li>
+          Inputted some margin on the top side so that there is some space between the landing page's content and the
+          navbar.
+        </li>
+        <li>
+          Implemented a hamburger icon when the screen is at a certain size of width or smaller. Navbar becomes vertical
+          that pop ups.
+        </li>
         <li>Made it so that the navbar will always show up even when user is scrolling down.</li>
       </ul>
     </ul>
   </div>
+
   <div>
     <%= render partial: 'versions' %>
   </div>

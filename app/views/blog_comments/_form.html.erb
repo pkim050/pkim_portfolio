@@ -5,10 +5,10 @@
       <% blog_comment.errors.full_messages.each do |error| %>
         <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
       <% end %>
-      </br>
+      <br />
     <% end %>
     <div class="form-group">
-      <%= f.label 'New comment' %></br>
+      <%= f.label 'New comment' %><br />
       <%= f.text_area :body, class: 'form-control w-full h-24' %>
       <%= f.hidden_field :user_id, value: user.id %>
     </div>

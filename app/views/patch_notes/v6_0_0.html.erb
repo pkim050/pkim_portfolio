@@ -1,28 +1,41 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v6.0.0</h1>
-    <br>
-    <h4 class="text-xl font-bold">November 17, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 11, 17).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <br />
+
+    <h4 class="text-xl font-bold">
+      November 17, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 11, 17).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
     <p><em>by: Patrick Kim</em></p>
-    <br>
-    <p class="border-b-2 border-black">Configurations for production. Going live is not easy, especially when you are starting from scratch. Luckily, I had some experience with my previous work where I was able to configure production with rails application using Docker, Kubernetes, and Azure Cloud services. I should be able to do it with my virtual private server... right?</p>
-    <br>
+    <br />
+
+    <p class="border-b-2 border-black">
+      Configurations for production. Going live is not easy, especially when you are starting from scratch. Luckily, I had
+      some experience with my previous work where I was able to configure production with rails application using Docker,
+      Kubernetes, and Azure Cloud services. I should be able to do it with my virtual private server... right?
+    </p>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">New Implementations</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>It's official. We are LIVE!</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>It's official. We are LIVE!</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Production</strong></li>
-      <br>
+      <br />
+
       <p><em>Not going to lie, I have struggled massively hard getting this to work properly.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Installed and configured Capistrano, a deployment automation tool.</li>
         <li>Added credentials and master key.</li>
@@ -30,15 +43,25 @@
         <li>Installed Ubuntu 20.04 as OS on Virtual Private Server (VPS).</li>
         <li>Installed all necessary packages on VPS such as lib packages, rails, rbenv, git, postgres, and many more.</li>
         <li>Created production database via PostgreSQL.</li>
-        <li>Created an admin user since connecting as root user has its security issues especially when deployments are happening.</li>
+        <li>
+          Created an admin user since connecting as root user has its security issues especially when deployments are
+          happening.
+        </li>
         <li>Installed and configured Apache 2 and Nginx.</li>
         <li>Proxied both nginx and apache2 to proxy port to 3000 as that is the default when booting up rails server.</li>
         <li>Installed and configured SSL with Certbot.</li>
-        <li>Enabled mods for Apache 2 so that configurations were working correctly such as headers, proxy, ssl, and passenger.</li>
-        <li>Many more configurations where I had to test a lot of things to see which port was working, which proxy was working, etc.</li>
+        <li>
+          Enabled mods for Apache 2 so that configurations were working correctly such as headers, proxy, ssl, and
+          passenger.
+        </li>
+        <li>
+          Many more configurations where I had to test a lot of things to see which port was working, which proxy was
+          working, etc.
+        </li>
       </ul>
     </ul>
   </div>
+
   <div>
     <%= render partial: 'versions' %>
   </div>
