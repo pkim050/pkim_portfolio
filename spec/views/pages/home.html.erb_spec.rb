@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'layouts/application', type: :feature do
+RSpec.describe 'pages/home', type: :feature do
   before do
     visit root_path
   end

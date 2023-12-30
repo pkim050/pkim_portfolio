@@ -2,13 +2,20 @@
   <div class="container rounded overflow-hidden shadow-lg", id="comment-<%= blog_comment.id %>">
     <div class="px-6 py-4">
       <div class="flex">
-        <strong><%= blog_comment.user.username %> ·</strong>&nbsp<%= distance_of_time_in_words_to_now(blog_comment.created_at.in_time_zone('Pacific Time (US & Canada)')) %> ago
+        <strong>
+          <%= blog_comment.user.username %> ·
+        </strong>
+        &nbsp<%= distance_of_time_in_words_to_now(blog_comment.created_at.in_time_zone('Pacific Time (US & Canada)')) %>
+        ago
         <% if blog_comment.created_at != blog_comment.updated_at %>
-          <em class="ml-auto">Last Updated: <%= distance_of_time_in_words_to_now(blog_comment.updated_at.in_time_zone('Pacific Time (US & Canada)')) %> ago</em>
+          <em class="ml-auto">
+            Last Updated:
+            <%= distance_of_time_in_words_to_now(blog_comment.updated_at.in_time_zone('Pacific Time (US & Canada)')) %> ago
+          </em>
         <% end %>
       </div>
       <%= simple_format blog_comment.body, id: "comment-body-#{blog_comment.id}" %>
-      </br>
+      <br />
       <div class="flex">
         <%= link_to 'Reply', new_blog_post_blog_comment_path(blog_post, parent_id: blog_comment.id), data: { turbo_stream: "reply-#{blog_comment.id}" }, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
         <div class="ml-auto">

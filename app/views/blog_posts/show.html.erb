@@ -19,7 +19,7 @@
       <p class="font-bold text-xl mb-2">Comments</p>
       <%= simple_form_for([blog_post, blog_post.blog_comments.build]) do |f| %>
         <div class="form-group">
-          <%= f.label 'New comment' %></br>
+          <%= f.label 'New comment' %><br />
           <%= f.text_area :body, class: 'form-control w-full h-24' %>
           <%= f.hidden_field :user_id, :value => user&.id %>
         </div>

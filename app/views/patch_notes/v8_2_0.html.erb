@@ -1,18 +1,17 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
-    <h1 class="text-4xl font-bold text-center">Patch Notes v4.0.0</h1>
+    <h1 class="text-4xl font-bold text-center">Patch Notes v8.2.0</h1>
     <br />
 
-    <h4 class="text-xl font-bold">
-      September 15, 2023 ·
-      <%= distance_of_time_in_words_to_now(Date.new(2023, 9, 15).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    <h4 class="text-xl font-bold">December 29, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 29).in_time_zone('Pacific Time (US & Canada)')) %> ago
     </h4>
     <p><em>by: Patrick Kim</em></p>
     <br />
 
     <p class="border-b-2 border-black">
-      We implemented a flexible authentication solution that provides users to sign up, in, & out, and edit their profile
-      by utilizing a gem called Devise.
+      Projects page is done. Not really a feature, so just like the previous patch, this will be considered a major
+      update, not a feature update nor a minor update.
     </p>
     <br />
 
@@ -25,9 +24,8 @@
     <ul class="border border-black p-4">
       <p>
         <em>
-          Although this website might be a portfolio as of right now, but account creation was added due to the fact that
-          the website will have a blog and other factors that users can utilize while signed in. Do you personally like
-          using Devise or do you prefer other libraries for users to create their account?
+          For now, I can only direct users to relevent links to my projects. I will eventually load them up in the same
+          website.
         </em>
       </p>
       <br />
@@ -35,34 +33,26 @@
       <p class="border-b-2 border-black"></p>
       <br />
 
-      <li><strong>Users</strong></li>
+      <li><strong>Projects</strong></li>
       <br />
 
-      <p>
-        <em>
-          You don't necessarily need to sign up, but you're more than welcome to, who knows, maybe there is some content
-          only signed in users can see?
-        </em>
-      </p>
+      <p><em>A simple list of projects, from most recent to oldest.</em></p>
       <br />
 
       <ul class="list-disc list-inside">
-        <li>Installed and configured Devise.</li>
-        <li>Migrated in username, first_name, last_name, and roles attributes to user model.</li>
-        <li>Username, first name, and last name has to be filled up during sign up form.</li>
-        <li>Usernames are unique during sign up form.</li>
-        <li>User has two roles; member and admin.</li>
-        <li>When users register, they are defaulted to member role.</li>
-        <li>
-          Currently, there is no way to make a user admin in the web. Have to do this manually via console. Will update in
-          the future.
-        </li>
-        <li>All user forms do not have any styling done, all just barebones. Will update them in the future.</li>
-        <li>Installed simple form gem for simplicity.</li>
+        <li>Added Projects page.</li>
+        <li>Each project will have an image on the left side.</li>
+        <li>Each project will have a title on the middle.</li>
+        <li>Each project will have a date, sub-title, and a paragraph on the right side.</li>
+        <li>Each image will be linkable to a relevant source.</li>
+        <li>Each title will be linkable to a relevant source.</li>
+        <li>Users will be directed to a new browser tab when clicking on any of project links.</li>
       </ul>
-    </ul>
-    <br />
+      <br />
 
+    </ul>
+
+    <br />
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Updates</h2>
@@ -70,7 +60,41 @@
     <br />
 
     <ul class="border border-black p-4">
-      <p><em>Need to update in order to get some functionalities to work, it's worth it, trust me.</em></p>
+      <p><em>Did some refactoring.</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>About</strong></li>
+      <br />
+
+      <p><em>Naming convention can be tricky at times.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Changed About Me's naming convention to About.</li>
+        <li>Moved controller to Pages Controller since it only needed to show case the about page.</li>
+        <li>Only the path changed from about_me to about.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Home</strong></li>
+      <br />
+
+      <p><em>Give users some options of seeing that long list in the homepage.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added more bullet points.</li>
+        <li>Crossed out some bullet points.</li>
+        <li>Added a javascript where if a button is clicked, the todo list will show or hide.</li>
+        <li>Added a link to my wedding website.</li>
+        <li>Updated content in home page.</li>
+      </ul>
       <br />
 
       <p class="border-b-2 border-black"></p>
@@ -79,34 +103,45 @@
       <li><strong>Navbar</strong></li>
       <br />
 
-      <p>
-        <em>As promised, navbar will be updated after configuring Devise. Users can actually create an account now!</em>
-      </p>
+      <p><em>All menus should be fully functional now!</em></p>
       <br />
 
       <ul class="list-disc list-inside">
         <li>
-          Configured to display all RSpec messages as default only showed what failed and what passed in a dot/x format.
+          Updated both in regular and hamburger menu for Projects to be linked and have users direct them to the Projects
+          page.
         </li>
-        <li>
-          Clicking the icon on the top left of the navbar will direct user to homepage instead of scrolling back to the
-          top of the page.
-        </li>
-        <li>Navbar now displays Edit Profile and Sign Out buttons on the right side when user is logged in.</li>
+        <li>Updated name of About Me to About for both menus in hamburger and regular.</li>
       </ul>
       <br />
 
       <p class="border-b-2 border-black"></p>
       <br />
 
-      <li><strong>Landing Page</strong></li>
+      <li><strong>Patch Note</strong></li>
       <br />
 
-      <p><em>Silly typos...</em></p>
+      <p><em>Projects branch</em></p>
       <br />
 
       <ul class="list-disc list-inside">
-        <li>Updated a typo.</li>
+        <li>Added v8.2.0 patch note.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Generality</strong></li>
+      <br />
+
+      <p><em>Ton of refactoring in the front-end.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Replaced all line break tags to a more consistent one for cleaner and easier to read code.</li>
+        <li>Application version update from 8.1.0 to 8.2.0.</li>
+        <li>Refactored all HTML files for cleaner code and readability.</li>
       </ul>
       <br />
 
@@ -116,18 +151,11 @@
       <li><strong>Testing</strong></li>
       <br />
 
-      <p><em>This is more for the developers moving forward... unless?</em></p>
+      <p><em>Everything is almost all done.</em></p>
       <br />
 
       <ul class="list-disc list-inside">
-        <li>
-          Github pipeline now has postgres configurations and specific rails commands for both rubocop and rspec testings.
-        </li>
-        <li>
-          The default documentation for RSpec was not helpful, therefore, the format has changed to be more robust, more
-          info the better.
-        </li>
-        <li>Installed Pry gem for more test help.</li>
+        <li>Added RSpec testing for Projects page for view.</li>
       </ul>
     </ul>
     <br />
@@ -139,34 +167,20 @@
     <br />
 
     <ul class="border border-black p-4">
-      <p>
-        <em>
-          Just like in real life, we need to take care of these bugs. Only difference is, I only like computer bugs and
-          enjoy on how I can fix them.
-        </em>
-      </p>
+      <p><em>Resume PDF file was not working, it is not the Rails root path this time.</em></p>
       <br />
 
       <p class="border-b-2 border-black"></p>
       <br />
 
-      <li><strong>Navbar</strong></li>
+      <li><strong>Production</strong></li>
       <br />
 
-      <p>
-        <em>
-          Even though this patch was about user account creation, navbar is shining quite brightly as it is a core unit
-          that is holding down on what the user can do.
-        </em>
-      </p>
+      <p><em>Changed a configuration where the public file will not be available.</em></p>
       <br />
 
       <ul class="list-disc list-inside">
-        <li>The hamburger menu was not closing properly even after the user clicks on the X mark (Close button).</li>
-        <li>
-          Changed the existing script to a function to ensure the closing and opening the hamburger menu works via turbo
-          load of said function. Also added jquery.
-        </li>
+        <li>Fixed a bug where the resume PDF file was not being found.</li>
       </ul>
     </ul>
   </div>
