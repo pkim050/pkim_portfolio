@@ -1,74 +1,107 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v8.1.0</h1>
-    <br>
-    <h4 class="text-xl font-bold">December 28, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 28).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <br />
+
+    <h4 class="text-xl font-bold">
+      December 28, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 28).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
     <p><em>by: Patrick Kim</em></p>
-    <br>
+    <br />
+
     <p class="border-b-2 border-black">Resume portion.</p>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Updates</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>Even though Resume has its own feature branch, I decided that it is a major update instead of feature update nor minor update.</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p>
+        <em>
+          Even though Resume has its own feature branch, I decided that it is a major update instead of feature update nor
+          minor update.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Navbar</strong></li>
-      <br>
+      <br />
+
       <p><em>Users will be able to see my resume in PDF format via navbar.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Updated Resume to be linkable towards my resume in PDF format.</li>
         <li>User will be directed to my resume in PDF format in a new browser tab.</li>
         <li>Both hamburger and regular navbar menus are correctly linked.</li>
         <li>Ensured to avoid tabnabbing attack (security vulnerability).</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Home</strong></li>
-      <br>
+      <br />
+
       <p><em>Added some extra bullet points.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Noticed that Github workflow for master file is failing, need to fix that.</li>
-        <li>Noticed that Github workflow that was not meant for master branch when master branch is the source is still being tested, need to fix that.</li>
+        <li>
+          Noticed that Github workflow that was not meant for master branch when master branch is the source is still being
+          tested, need to fix that.
+        </li>
         <li>Noticed that any timestamp might be in UTC, I want to change it PST timeframe.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Patch Notes</strong></li>
-      <br>
+      <br />
+
       <p><em>v8.1.0</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Patch notes about resume branch.</li>
         <li>Updated timestamps to be in PST.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Blog Comments</strong></li>
-      <br>
+      <br />
+
       <p><em>Timestamps</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Updated timestamps to be in PST for both comments and replies.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Generality</strong></li>
-      <br>
+      <br />
+
       <p><em>Need that physical file in order to let users see the PDF file!</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Application version changed from v8.0.0 to v8.1.0.</li>
         <li>Added PDF file in public folder.</li>
@@ -76,6 +109,7 @@
       </ul>
     </ul>
   </div>
+
   <div>
     <%= render partial: 'versions' %>
   </div>

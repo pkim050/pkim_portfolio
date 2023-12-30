@@ -1,66 +1,87 @@
 <div class="flex justify-between p-8">
   <div class="w-full">
     <h1 class="text-4xl font-bold text-center">Patch Notes v7.0.1</h1>
-    <br>
-    <h4 class="text-xl font-bold">December 8, 2023 · <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 8).in_time_zone('Pacific Time (US & Canada)')) %> ago</h4>
+    <br />
+
+    <h4 class="text-xl font-bold">
+      December 8, 2023 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2023, 12, 8).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
     <p><em>by: Patrick Kim</em></p>
-    <br>
+    <br />
+
     <p class="border-b-2 border-black">First production hotfix.</p>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Update</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>Updates specifically for production hot fix.</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>Updates specifically for production hot fix.</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Patch Notes</strong></li>
-      <br>
+      <br />
+
       <p><em>Our first minor change that keeps the same major version.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Added v7.0.1 documentation.</li>
       </ul>
-      <br>
+      <br />
+
       <p class="border-b-2 border-black"></p>
-      <br>
+      <br />
+
       <li><strong>Generality</strong></li>
-      <br>
+      <br />
+
       <p><em>Made some changes in general as well.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
         <li>Updated production command to first kill the pid before starting the server again.</li>
         <li>Updated application version from v7.0.0 to v7.0.1.</li>
         <li>Updated home page with an updated todo list.</li>
       </ul>
     </ul>
-    <br>
+    <br />
+
     <div class="flex justify-items-start">
       <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
       <h2 class="text-4xl font-bold m-2">Bug Fixes</h2>
     </div>
-    <br>
+    <br />
+
     <ul class="border border-black p-4">
-      <div class="divide-y-2 divide-black">
-        <p><em>Production will not be up unless I fixed this bug.</em></p>
-        <br>
-        <p></p>
-      </div>
-      <br>
+      <p><em>Production will not be up unless I fixed this bug.</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
       <li><strong>Patch Notes</strong></li>
-      <br>
+      <br />
+
       <p><em>Directory/File commands bugs.</em></p>
-      <br>
+      <br />
+
       <ul class="list-disc list-inside">
-        <li>Fixed a bug where paths for direction and file commands was given syntax error where the direcotires / files could not be found.</li>
+        <li>
+          Fixed a bug where paths for direction and file commands was given syntax error where the direcotires / files
+          could not be found.
+        </li>
       </ul>
     </ul>
   </div>
+
   <div>
     <%= render partial: 'versions' %>
   </div>

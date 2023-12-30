@@ -4,14 +4,14 @@
     <% blog_post.errors.full_messages.each do |error| %>
       <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
     <% end %>
-    </br>
+    <br />
   <% end %>
 
   <div class="form-inputs mb-4 overflow-hidden">
-    <%= f.label 'Title', class: "text-xl text-pink-300" %> <span class="text-red-500">*</span></br>
-    <%= f.input :title, label: false, input_html: { class: "border-2 border-gray-300 p-2 w-full" } %></br>
+    <%= f.label 'Title', class: "text-xl text-pink-300" %> <span class="text-red-500">*</span><br />
+    <%= f.input :title, label: false, input_html: { class: "border-2 border-gray-300 p-2 w-full" } %><br />
 
-    <%= f.label 'Body', class: "text-xl text-pink-300" %> <span class="text-red-500">*</span></br>
+    <%= f.label 'Body', class: "text-xl text-pink-300" %> <span class="text-red-500">*</span><br />
     <%= f.text_area :body, class: "tinymce border-2 border-gray-500", rows: 40, cols: 120 %>
     <%= tinymce %>
 
@@ -25,10 +25,14 @@
 
 <% if blog_post.id %>
   <div class="flex-1">
-    <button class="p-3 bg-red-500 hover:bg-[#bf04ff] text-black font-bold transition duration-200"><%= link_to "Cancel", blog_post %></button>
+    <button class="p-3 bg-red-500 hover:bg-[#bf04ff] text-black font-bold transition duration-200">
+      <%= link_to "Cancel", blog_post %>
+    </button>
   </div>
 <% else %>
   <div class="flex-1">
-    <button class="p-3 bg-red-500 hover:bg-[#bf04ff] text-black font-bold transition duration-200"><%= link_to "Cancel", blog_posts_path %></button>
+    <button class="p-3 bg-red-500 hover:bg-[#bf04ff] text-black font-bold transition duration-200">
+      <%= link_to "Cancel", blog_posts_path %>
+    </button>
   </div>
 <% end %>

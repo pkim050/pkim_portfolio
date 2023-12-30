@@ -5,10 +5,10 @@
       <% blog_comment.errors.full_messages.each do |error| %>
         <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
       <% end %>
-      </br>
+      <br />
     <% end %>
     <div class="form-group">
-      <%= f.label 'Edit comment' %></br>
+      <%= f.label 'Edit comment' %><br />
       <%= f.text_area :body, class: 'form-control w-full h-24' %>
     </div>
     <%= f.submit 'Submit', class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>

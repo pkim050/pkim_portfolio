@@ -52,6 +52,10 @@ RSpec.describe 'blog_posts/index', type: :feature do
     it 'renders Read more -> link' do
       expect(page).to have_css("#blog_post_#{blog_post.id} button a.underline", text: 'Read more ->')
     end
+
+    it 'renders a divider between blogs' do
+      expect(page).to have_css('.divide-y')
+    end
   end
 
   context 'when admin user is logged in' do
