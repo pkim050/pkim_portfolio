@@ -37,6 +37,12 @@ RSpec.describe 'blog_posts/show', type: :feature do
     expect(page).to have_css("div#blog_post_#{blog_post.id} span", text: blog_post.body)
   end
 
+  it 'renders blog posts age' do
+    expect(page).to have_css(
+      "div#blog_post_#{blog_post.id} #age_#{blog_post.id}", text: 'Posted: less than a minute ago'
+    )
+  end
+
   it 'renders Back to blog posts button' do
     expect(page).to have_css(
       'a.py-2.px-6.text-sm.text-black.font-bold.rounded-xl.transition.duration-200', text: 'Back to blog posts'

@@ -1,7 +1,8 @@
 <div id="<%= dom_id blog_post %>" class="break-all">
   <% if @blog_posts %>
     <br />
-    <strong><%= blog_post.title&.capitalize %></strong>
+    <strong><%= blog_post.title&.capitalize %> ·</strong>
+    <%= distance_of_time_in_words_to_now(blog_post.created_at.in_time_zone('Pacific Time (US & Canada)')) %> ago
     <br /><br />
     <span class="line-clamp-3"><%= raw blog_post.body %></span>
     <br />
@@ -11,7 +12,11 @@
   <% else %>
     <strong class="flex justify-center"><%= blog_post.title&.capitalize %></strong>
     <br /><br />
-    <span class=""><%= raw blog_post.body %></span>
+    <span><%= raw blog_post.body %></span>
+    <br />
+    <p id="age_<%= blog_post.id %>">
+      Posted: <%= distance_of_time_in_words_to_now(blog_post.created_at.in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </p>
   <% end %>
   <br /><br />
 </div>

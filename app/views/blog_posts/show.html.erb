@@ -1,10 +1,12 @@
 <div class="container mx-auto px-5 m-20">
   <%= render blog_post %>
 
-  <div class="flex">
-    <%= link_to "Back to blog posts", blog_posts_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
+  <div class="flex justify-between">
+    <div>
+      <%= link_to "Back to blog posts", blog_posts_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
+    </div>
 
-    <div class="ml-auto">
+    <div class="flex gap-1">
       <% if can? :edit, blog_post %>
         <%= link_to "Edit", edit_blog_post_path(blog_post), class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold rounded-xl transition duration-200" %>
       <% end %>
