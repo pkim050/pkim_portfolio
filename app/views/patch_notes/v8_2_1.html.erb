@@ -1,0 +1,156 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v8.2.1</h1>
+    <br />
+
+    <h4 class="text-xl font-bold">January 1, 2024 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2024, 1, 1).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br />
+
+    <p class="border-b-2 border-black">
+      New year, new patch!
+    </p>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p>
+        <em>
+          To start off the new year, we are applying our first minor patch! This consists of simple typo correction,
+          refactoring code, and adjusting some front end work.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Blog Posts</strong></li>
+      <br />
+
+      <p><em>Some of the front end work needed adjusting.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added timestamp of when blog posts were created in both index and show pages.</li>
+        <li>Adjusted Edit and Destroy buttons for blog posts. Only blog posts' owner can see them.</li>
+        <li>Create Blog Post buttons have been aligned to the middle. Only admins can see them.</li>
+        <li>Text content when there are no blog posts have been aligned to the middle.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Footer</strong></li>
+      <br />
+
+      <p><em>Copyright update.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added year 2024 into the copyright.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>About</strong></li>
+      <br />
+
+      <p><em>Kind of important to know which companies you worked for in the past right?</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Included the name of each company I worked for.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Home</strong></li>
+      <br />
+
+      <p><em>That button looked ugly, just adding minimal style on it.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Changed text color to black from purple.</li>
+        <li>Added some padding and margin to have the show/hide buttons look more like a button.</li>
+        <li>Added the change of background color of show/hide buttons to purple when being hovered over.</li>
+        <li>Finished four bullet points in the todo list.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Projects</strong></li>
+      <br />
+
+      <p><em>Those darn typos!</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Fixed typo of 'platers' to 'players'.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Patch Notes</strong></li>
+      <br />
+
+      <p><em>Those darn typos part two!</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Fixed typo of 'not' to 'now' in v8.2.0 patch note.</li>
+        <li>Added patch note v8.2.1.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Generality</strong></li>
+      <br />
+
+      <p><em>Other minor updates.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Application version is updated to 8.2.1 from 8.2.0.</li>
+        <li>Updated Javascript add event listeners to be inside a function so that it can be called after turbo load.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Testing</strong></li>
+      <br />
+
+      <p><em>Added two testings.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added RSpec testing for blog posts age on both show and index pages.</li>
+      </ul>
+    </ul>
+  </div>
+
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

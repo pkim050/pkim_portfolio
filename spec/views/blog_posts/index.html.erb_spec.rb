@@ -45,6 +45,10 @@ RSpec.describe 'blog_posts/index', type: :feature do
       expect(page).to have_css("#blog_post_#{blog_post.id} strong", text: blog_post.title)
     end
 
+    it 'renders blog posts age' do
+      expect(page).to have_css("#blog_post_#{blog_post.id}", text: 'less than a minute ago')
+    end
+
     it 'renders blog post content' do
       expect(page).to have_css("#blog_post_#{blog_post2.id} span.line-clamp-3", text: blog_post2.body)
     end

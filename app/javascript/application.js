@@ -64,6 +64,7 @@ $(document).on('turbo:load', function() {
   hamburger()
   scrollFunction()
   backToTop()
+  todo_button()
 })
 
 // Get the button
@@ -74,24 +75,26 @@ mybutton.addEventListener("click", backToTop);
 
 window.addEventListener("scroll", scrollFunction);
 
-const dropdownButton = document.querySelector("#dropdown");
-const dropdownButton2 = document.querySelector("#dropdown2");
-const dropdownList = document.querySelector("#dropdown + div.hidden");
+function todo_button() {
+  const dropdownButton = document.querySelector("#dropdown");
+  const dropdownButton2 = document.querySelector("#dropdown2");
+  const dropdownList = document.querySelector("#dropdown + div.hidden");
 
-dropdownButton.addEventListener("click", () => {
-  dropdownList.classList.toggle("hidden");
-  if (dropdownButton.innerHTML === 'Show') {
-    dropdownButton.innerHTML = 'Hide'
-  } else {
-    dropdownButton.innerHTML = 'Show'
-  }
-});
+  dropdownButton.addEventListener("click", () => {
+    dropdownList.classList.toggle("hidden");
+    if (dropdownButton.innerHTML === 'Show') {
+      dropdownButton.innerHTML = 'Hide'
+    } else {
+      dropdownButton.innerHTML = 'Show'
+    }
+  });
 
-dropdownButton2.addEventListener("click", () => {
-  dropdownList.classList.toggle("hidden");
-  if (dropdownButton.innerHTML === 'Show') {
-    dropdownButton.innerHTML = 'Hide'
-  } else {
-    dropdownButton.innerHTML = 'Show'
-  }
-});
+  dropdownButton2.addEventListener("click", () => {
+    dropdownList.classList.toggle("hidden");
+    if (dropdownButton.innerHTML === 'Show') {
+      dropdownButton.innerHTML = 'Hide'
+    } else {
+      dropdownButton.innerHTML = 'Show'
+    }
+  });
+}
