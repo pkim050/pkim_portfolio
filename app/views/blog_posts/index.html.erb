@@ -1,9 +1,13 @@
 <% if can? :create, blog_posts %>
-  <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+  <div class="mt-8 ml-[50vw]">
+    <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+  </div>
 <% end %>
 
 <% if BlogPost.count.zero? %>
-  <h1>Looks like there are no blog posts from Patrick, let him know so that he can create his first blog post!</h1>
+  <p class="container mx-auto px-60 m-20 text-center">
+    Looks like there are no blog posts from Patrick, let him know so that he can create his first blog post!
+  </p>
 <% end %>
 
 <div id="blog_posts" class="container mx-auto px-60 m-20 divide-y divide-[#bf04ff]">
@@ -14,5 +18,7 @@
 </div>
 
 <% if can? :create, blog_posts %>
-  <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+  <div class="ml-[50vw]">
+    <%= link_to "Create New Blog Post", new_blog_post_path, class: "py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-black font-bold rounded-xl transition duration-200" %>
+  </div>
 <% end %>
