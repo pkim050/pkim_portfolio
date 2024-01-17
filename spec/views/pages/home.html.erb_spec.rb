@@ -52,7 +52,7 @@ RSpec.describe 'pages/home', type: :feature do
       expect(1 + 7).to eq(8)
     end
 
-    it 'renders Sign In button' do
+    it 'renders Log In button' do
       expect(1 + 8).to eq(9)
     end
 
@@ -114,8 +114,8 @@ RSpec.describe 'pages/home', type: :feature do
     end
     # rubocop:enable RSpec/NestedGroups
 
-    context 'when Sign In button is clicked' do
-      it 'directs user to sign in form' do
+    context 'when Log In button is clicked' do
+      it 'directs user to log in form' do
         expect(1 + 1).to eq(2)
       end
     end

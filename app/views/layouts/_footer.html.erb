@@ -7,6 +7,14 @@
         <a href="/" class="hover:underline hover:text-pink-300">Patrick Aaron Kim</a>
         ™. All Rights Reserved.
       </p>
+      <!-- <span class="flex justify-between">
+        <a class="pointer-events-none" href="https://www.linkedin.com/in/pkim050/" target="_blank" rel="noopener">
+          <img class="pointer-events-auto h-8 w-8" src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn">
+        </a>
+        <a class="pointer-events-none" href="mailto:patrick.aaron.kim@gmail.com" target="_blank" rel="noopener">
+          <img class="pointer-events-auto h-8 w-8" src="https://cdn-icons-png.flaticon.com/512/10417/10417870.png" alt="Email">
+        </a>
+      </span> -->
       <p>
         <a href="/patch_notes/<%= Dir.children(Rails.root.join('app', 'views', 'patch_notes')).sort { |a, b| b <=> a }.first.split('.html.erb').first.gsub('_', '.') %>" class="underline hover:text-pink-300">
           <%= File.read(Rails.root.join('.app_version')) %>

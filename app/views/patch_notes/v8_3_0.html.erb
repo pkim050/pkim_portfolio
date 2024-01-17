@@ -1,0 +1,149 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v8.3.0</h1>
+    <br />
+
+    <h4 class="text-xl font-bold">January 17, 2024 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2024, 1, 17).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br />
+
+    <p class="border-b-2 border-black">
+      Login, registration, edit profile forms have visual upgrades.
+    </p>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p>
+        <em>
+          Updated forms, naming convention, and stylization.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Users</strong></li>
+      <br />
+
+      <p><em>Major visual upgrade!</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Stylized forms of Sign In, Sign Up, Edit Profile and Forgot Password.</li>
+        <li>Title of each fields are no longer shown but rather, have only placeholder to indicate each fields.</li>
+        <li>Added logos of each forms that are respective to their path (Log In, Sign Up, etc).</li>
+        <li>Error messages will show up in the middle, just above the fields.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Navbar</strong></li>
+      <br />
+
+      <p><em>Naming convention changed.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Sign In buttons are changed to Log In buttons in the navigation bar, both on hamburger and regular.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Home</strong></li>
+      <br />
+
+      <p><em>List updated.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added two bullet points.</li>
+        <li>Crossed out three bullet points.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>RSpec</strong></li>
+      <br />
+
+      <p><em>Naming convention.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Since the naming convention changed from sign in to log in, the testings naming convention changed as well.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Patch Notes</strong></li>
+      <br />
+
+      <p><em>v8.3.0</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Updated previous patch notes key words from 'sign in' to 'log in'.</li>
+        <li>Added v8.3.0 page.</li>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Generality</strong></li>
+      <br />
+
+      <p><em>Updated a configuration that only affects development.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Action mailure default url is localhost:3000.</li>
+        <li>Refactored some bullet points in my resume.</li>
+      </ul>
+    </ul>
+
+    <br />
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Bug Fixes</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p><em>Fixing a bug that does not break the website.</em></p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Home</strong></li>
+      <br />
+
+      <p><em>It was working, but it was backwards.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Show / Hide button would switch in vice versa. Fixed it where it is now correctly showing Show / Hide button accordingly.</li>
+      </ul>
+    </ul>
+  </div>
+
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

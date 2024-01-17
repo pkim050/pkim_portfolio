@@ -104,7 +104,7 @@ RSpec.describe 'blog_posts/new', type: :feature do
   end
 
   context 'when non logged in user manually enters new form url' do
-    it 'directs user to sign in form' do
+    it 'directs user to log in form' do
       logout
       visit new_blog_post_path
       expect(page).to have_current_path(user_session_path)
