@@ -234,7 +234,7 @@ RSpec.describe 'blog_posts/show', type: :feature do
 
   # rubocop:disable RSpec/NestedGroups
   context 'when Submit button for new comment is clicked' do
-    it 'directs non logged in user to sign in form' do
+    it 'directs non logged in user to log in form' do
       expect(1 + 1).to eq(2)
     end
 
@@ -252,7 +252,7 @@ RSpec.describe 'blog_posts/show', type: :feature do
   end
 
   context 'when Reply button is clicked' do
-    it 'directs non logged in user to sign in form' do
+    it 'directs non logged in user to log in form' do
       expect(1 + 1).to eq(2)
     end
 

@@ -1,44 +1,57 @@
-<h2>Sign up</h2>
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-36 w-36" src="https://cdn-icons-png.flaticon.com/512/6239/6239065.png" alt="Sign Up Logo"/>
+      <h2 class="-mt-8 text-center text-3xl font-extrabold text-black">Create your account</h2>
+      <% if devise_mapping.registerable? && controller_name != 'sessions' %>
+        <p class="mt-2 text-center text-sm text-black">
+          Or
+          <%= link_to "Log In", new_user_session_path, class: "font-medium text-[#bf04ff] hover:text-pink-300" %>
+        </p>
+      <% end %>
+    </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="mt-8 space-y-6">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <%= f.label :username, class: "sr-only", for: "username" %>
+          <%= f.text_field :username, id: "username", autofocus: true, autocomplete: "username", placeholder: "Username", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-t-md focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <div>
+          <%= f.label :first_name, class: "sr-only", for: "first_name" %>
+          <%= f.text_field :first_name, id: "first_name", autocomplete: "first_name", placeholder: "First Name", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "first_name" %>
-  </div>
+        <div>
+          <%= f.label :last_name, class: "sr-only", for: "last_name" %>
+          <%= f.text_field :last_name, id: "last_name", autocomplete: "last_name", placeholder: "Last Name", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
+        <div>
+          <%= f.label :email, class: "sr-only", for: "email" %>
+          <%= f.email_field :email, id: "email", autocomplete: "email", placeholder: "Email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
+        <div>
+          <%= f.label :password, class: "sr-only", for: "password" %>
+          <% if @minimum_password_length %>
+            <%= f.password_field :password, id: "new_password", autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+          <% else %>
+            <%= f.password_field :password, id: "new_password", autocomplete: "new-password", placeholder: "Password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+          <% end %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div>
+          <%= f.label :password_confirmation, class: "sr-only", for: "password_confirmation" %>
+          <%= f.password_field :password_confirmation, id: "new_password_confirmation", autocomplete: "new-password", placeholder: "Password Confirmation", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black rounded-b-md focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+        <div class="actions pt-4">
+          <%= f.submit "Sign Up", class: "actions group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-[#bf04ff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bf04ff]" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
