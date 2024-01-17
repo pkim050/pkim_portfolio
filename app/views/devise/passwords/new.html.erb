@@ -1,16 +1,38 @@
-<h2>Forgot your password?</h2>
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-36 w-36" src="https://cdn-icons-png.flaticon.com/512/1745/1745504.png" alt="Forgot Password Logo"/>
+      <h2 class="mt-2 text-center text-3xl font-extrabold text-black">Forgot your password?</h2>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div>
+        <%= f.label :email, class: "sr-only", for: "email" %>
+        <%= f.email_field :email, id: "email", autofocus: true, autocomplete: "email", placeholder: "email", class: "appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black focus:outline-none focus:ring-[#bf04ff] focus:border-[#bf04ff] focus:z-10 sm:text-sm" %>
+      </div>
+
+      <div class="mt-4">
+        <%= f.submit "Reset Password", class: "actions group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-green-500 hover:bg-[#bf04ff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bf04ff]" %>
+      </div>
+    <% end %>
+
+    <br />
+
+      <div class="flex flex-row space-x-4">
+        <div class="relative grow shrink h-[1px] top-[12px] bg-black"></div>
+        <div>OR</div>
+        <div class="relative grow shrink h-[1px] top-[12px] bg-black"></div>
+      </div>
+
+      <br />
+      <div class="actions">
+        <%= link_to "Sign Up", new_registration_path(resource_name), class: "actions group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-[#bf04ff] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bf04ff]" %>
+      </div>
+
+      <div class="actions">
+        <%= link_to "Back to log in", new_session_path(resource_name), class: "actions group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black bg-[#bf04ff] hover:bg-pink-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-300" %>
+      </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

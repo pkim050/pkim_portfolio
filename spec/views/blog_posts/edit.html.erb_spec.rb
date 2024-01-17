@@ -115,7 +115,7 @@ RSpec.describe 'blog_posts/edit', type: :feature do
   end
 
   context 'when non logged in user manually enters edit form url' do
-    it 'directs user to sign in form' do
+    it 'directs user to log in form' do
       logout
       visit edit_blog_post_path(blog_post)
       expect(page).to have_current_path(user_session_path)

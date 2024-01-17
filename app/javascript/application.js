@@ -56,6 +56,7 @@ const scrollFunction = () => {
     mybutton.classList.add("hidden");
   }
 };
+
 const backToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
@@ -80,21 +81,24 @@ function todo_button() {
   const dropdownButton2 = document.querySelector("#dropdown2");
   const dropdownList = document.querySelector("#dropdown + div.hidden");
 
-  dropdownButton.addEventListener("click", () => {
-    dropdownList.classList.toggle("hidden");
-    if (dropdownButton.innerHTML === 'Show') {
-      dropdownButton.innerHTML = 'Hide'
-    } else {
-      dropdownButton.innerHTML = 'Show'
-    }
-  });
+  if (dropdownButton) {
+    dropdownButton.addEventListener("click", () => {
+      if (dropdownList.classList.toggle("hidden") === false) {
+        dropdownButton.innerHTML = 'Hide'
+      } else {
+        dropdownButton.innerHTML = 'Show'
+      }
+    });
+  }
 
-  dropdownButton2.addEventListener("click", () => {
-    dropdownList.classList.toggle("hidden");
-    if (dropdownButton.innerHTML === 'Show') {
-      dropdownButton.innerHTML = 'Hide'
-    } else {
-      dropdownButton.innerHTML = 'Show'
-    }
-  });
+  if (dropdownButton2) {
+    dropdownButton2.addEventListener("click", () => {
+      dropdownList.classList.toggle("hidden");
+      if (dropdownButton.innerHTML === 'Show') {
+        dropdownButton.innerHTML = 'Hide'
+      } else {
+        dropdownButton.innerHTML = 'Show'
+      }
+    });
+  }
 }
