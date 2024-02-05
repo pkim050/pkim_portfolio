@@ -53,3 +53,13 @@ en:
       comment_error: 'Error trying to delete comment.'
       reply_success: 'Reply was successfully deleted.'
       reply_error: 'Error trying to delete reply.'
+  todo:
+    create:
+      todo_success: 'Todo was successfully created.'
+      todo_error: 'Error trying to create a todo.'
+    update:
+      todo_success: 'Todo was successfully updated.'
+      todo_error: 'Error trying to update a todo.'
+    destroy:
+      todo_success: 'Todo was successfully deleted.'
+      todo_error: 'Error trying to destroy todo.'

@@ -10,4 +10,4 @@
   <%= render partial: "progress", locals: { todos: Todo.all } %>
 <% end %>
 
-<!-- <%= turbo_stream.append "flash", partial: "layouts/notifications" %> -->
+<%= turbo_stream.append "flash", partial: "layouts/notifications" %>

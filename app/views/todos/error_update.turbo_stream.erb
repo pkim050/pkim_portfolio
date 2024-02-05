@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "edit_todo_#{todo.id}" do %>
+  <%= render partial: "edit", locals: { todo: } %>
+<% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

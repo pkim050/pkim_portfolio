@@ -16,7 +16,6 @@ class TodosController < ApplicationController
   end
 
   def edit
-    Rails.logger.info(params)
     render :edit, locals: { todo: @todo }
   end
 
@@ -24,22 +23,20 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     if @todo.save
-      Rails.logger.info('Very nice on the create!')
+      flash.now[:notice] = t('.todo_success')
       render :create, locals: { todo: @todo }
     else
-      Rails.logger.info('Not very nice on the create!')
+      render :error_create, locals: { todo: @todo }
     end
-    Rails.logger.info(todo_params)
   end
 
   def update
     if @todo.update(todo_params)
-      Rails.logger.info('Very nice on the update!')
+      flash.now[:notice] = t('.todo_success')
       render :update, locals: { todo: @todo }
     else
-      Rails.logger.info('Not very nice on the update!')
+      render :error_update, locals: { todo: @todo }
     end
-    Rails.logger.info(todo_params)
   end
 
   def destroy
@@ -50,12 +47,9 @@ class TodosController < ApplicationController
 
   def toggle
     @todo.done = !@todo.done
-    if @todo.save
-      Rails.logger.info('Very nice on the toggle!')
-      render :toggle, locals: { todo: @todo }
-    else
-      Rails.logger.info('Not very nice on the toggle!')
-    end
+    return unless @todo.save
+
+    render :toggle, locals: { todo: @todo }
   end
 
   private
