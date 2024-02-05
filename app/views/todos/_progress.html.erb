@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "progress" do %>
+  <div class="mb-1 text-base font-medium text-purple-700 dark:text-purple-500 text-center"><%= todos.select{|todo| todo.done == true}.length %> / <%= todos.count %> Completed</div>
+  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+    <div class="bg-purple-600 h-2.5 rounded-full dark:bg-purple-500" style="width: <%= Todo.where(done: true).count.to_f / Todo.all.count.to_f * 100.0 %>%"></div>
+  </div>
+<% end %>

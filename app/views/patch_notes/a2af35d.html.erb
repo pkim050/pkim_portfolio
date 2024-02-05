@@ -1,0 +1,121 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes a2af35d</h1>
+    <br />
+
+    <h4 class="text-xl font-bold">February 5, 2024 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2024, 2, 5).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br />
+
+    <p class="border-b-2 border-black">
+      For Roaming Hunger's eyes only!
+    </p>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Implementation</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p>
+        <em>
+          Todo List but instead of with React, I used Turbo for my front-end.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Todo Page</strong></li>
+      <br />
+
+      <p><em>It updates without being redirected!</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Todo model with fields title (as string) and done (as boolean) has been created in the database.</li>
+        <li>Todo's title field is required.</li>
+        <li>Todo's done field is false by default and null is false.</li>
+        <li>Updated routes specifically for /roaming_hunger for front end and api/v1/todos for back end.</li>
+        <li>Added seed to populate the todo list.</li>
+        <li>All todo data in JSON format is viewable through /api/v1/todos endpoint.</li>
+        <li>To see a specific todo in JSON format, the endpoint is /api/v1/todos/:id.</li>
+        <li>
+          Roaming Hunger employees are able to create new todos by pressing enter or clicking the add button after
+          inputting a string.
+        </li>
+        <li>Roaming Hunger employees are able to edit the title of existing todos.</li>
+        <li>Roaming Hunger employees are able to destroy each todo.</li>
+        <li>Roaming Hunger employees are able to check and uncheck checkboxes.</li>
+        <li>
+          Checking and unchecking the boxes will be able to modify the todo where it would strikethrough the text and
+          change the data of done to true and vice versa.
+        </li>
+        <li>Error are displayed when title is not present during creation and edit.</li>
+        <li>Added fontawesome icons for Edit and Destroy buttons.</li>
+        <li>Progress bar is displayed, indicating how many todos are completed.</li>
+        <li>Patch Note link provided on the bottom of the page.</li>
+      </ul>
+    </ul>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <li><strong>Testing</strong></li>
+      <br />
+
+      <p><em>Even though it is specifically for Roaming Hunger, still need to add the testings!</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Implemented testing.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Patch Note</strong></li>
+      <br />
+
+      <p><em>Does Roaming Hunger version their application according to commit version?</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added patch notes for Todo list.</li>
+        <li>
+          This patch note will not be part of the version list on the right side as this is meant for Roaming Hunger only.
+        </li>
+        <li>Footer will not reflect upon this patch note if this patch note is the latest version.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Generality</strong></li>
+      <br />
+
+      <p><em>Miscellaneous</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Installed Fontawesome packages via yarn/npm.</li>
+      </ul>
+    </ul>
+  </div>
+
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>

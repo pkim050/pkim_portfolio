@@ -4,6 +4,7 @@ import "./controllers"
 import "./add_jquery"
 import 'flowbite'
 import "flowbite/dist/flowbite.turbo.js"
+import "@fortawesome/fontawesome-free/js/all"
 
 function hamburger() {
   const burger = document.querySelectorAll('.navbar-burger');

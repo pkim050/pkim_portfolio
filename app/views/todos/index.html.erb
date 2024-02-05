@@ -1,0 +1,24 @@
+<div id="todos" class="container mx-auto px-60 mt-4">
+  <h1 class="text-4xl font-bold text-center">Todo List</h1>
+  <%= render partial: "progress", locals: { todos: todos } %>
+  <br />
+  <p class="border-b-2 border-black"></p>
+
+  <div class="mt-4" id="create-form">
+    <%= simple_form_for(todo) do |f| %>
+      <div class="flex justify-start gap-2">
+        <%= f.input :title, label: false, id: "create-todo", name: "create-todo", class: "shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker", placeholder: "Add Todo", maxlength: "100", onchange: "this.form.submit()" %>
+        <%= f.submit 'Add', display: 'none', class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold transition duration-200" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-4" id="todos">
+    <%= render partial: todos %>
+  </div>
+
+  <br />
+  <p class="text-center">Version:
+    <a class="underline text-black hover:text-[#bf04ff]" href="/patch_notes/a2af35d">a2af35d</a>
+  </p>
+</div>

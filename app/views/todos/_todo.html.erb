@@ -1,0 +1,18 @@
+<div class="flex justify-between mb-4 items-center" id="todo-<%= todo.id %>">
+  <div class="gap-2">
+    <%= turbo_frame_tag "toggle_todo" do %>
+      <%= link_to "/roaming_hunger/#{todo.id}/toggle", data: { turbo_stream: "todo-#{todo.id}" } do %>
+        <input id="checkbox-<%= todo.id %>" name="checkbox-<%= todo.id%>" type="checkbox" class="h-4 w-4 text-[#bf04ff] focus:ring-[#bf04ff] border-gray-300 rounded" <%= todo.done ? "checked=true" : "" %>>
+      <% end %>
+      <label id="todo-title-<%= todo.id %>" for="checkbox-<%= todo.id %>" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 <%= todo.done ? "line-through" : "" %>"><%= todo.title %></label>
+    <% end %>
+  </div>
+  <div class="gap-2">
+    <%= link_to "/roaming_hunger/#{todo.id}/edit", data: { turbo_stream: "todo-#{todo.id}" } do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+    <%= link_to "/roaming_hunger/#{todo.id}", data: { turbo_stream: "todo-#{todo.id}", turbo_method: :delete } do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </div>
+</div>

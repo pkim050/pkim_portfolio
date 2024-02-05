@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "new_todo" do %>
+  <%= render partial: "form", locals: { todo: } %>
+<% end %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

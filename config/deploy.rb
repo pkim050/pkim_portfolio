@@ -74,7 +74,7 @@ namespace :deploy do
   desc 'Start server'
   task :server do
     on roles(:all) do
-      execute 'kill -9 $(lsof -i tcp:3000 -t) && cd /var/www/patrickaaronkim.com/current && bin/prod'
+      execute 'kill -9 $(lsof -i tcp:3000 -t) && cd /var/www/patrickaaronkim.com/current &&  RAILS_ENV=production bundle exec rails db:migrate && RAILS_ENV=production bundle exec rails assets:precompile && bin/prod'
     end
   end
 end
