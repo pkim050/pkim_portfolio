@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "new_todo" do %>
+  <div class="mt-4" id="create-form">
+    <%= simple_form_for(todo) do |f| %>
+      <div class="flex justify-start gap-2">
+        <%= f.input :title, label: false, id: "create-todo", name: "create-todo", class: "shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker", placeholder: "Add Todo", maxlength: "100", onchange: "this.form.submit()" %>
+        <%= f.submit 'Add', display: 'none', class: "py-2 px-6 bg-green-500 hover:bg-[#bf04ff] text-sm text-black font-bold transition duration-200" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

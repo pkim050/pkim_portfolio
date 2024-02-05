@@ -117,6 +117,11 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.2.tgz#1205014625790c7ff0e471644a878a65d1e34ab0"
   integrity sha512-tcuhV7ncXBqbt/Ybf0IyrMcwVOAPDckMK9rXNHtF17UTK18OKLpg08glminN06pt2WCoALhXdLfSPbVvK/6fxw==
 
+"@fortawesome/fontawesome-free@^6.5.1":
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.5.1.tgz#55cc8410abf1003b726324661ce5b0d1c10de258"
+  integrity sha512-CNy5vSwN3fsUStPRLX7fUYojyuzoEMSXPl7zSLJ8TgtRfjv24LOnOWKT2zYwaHZCJGkdyRnTmstR0P+Ah503Gw==
+
 "@hotwired/stimulus@^3.2.2":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@hotwired/stimulus/-/stimulus-3.2.2.tgz"

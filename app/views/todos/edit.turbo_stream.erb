@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "todo-title-#{todo.id}" do %>
+  <%= turbo_frame_tag "edit_todo_#{todo.id}" do %>
+    <%= simple_form_for(todo) do |f| %>
+      <%= f.input :title, label: false %>
+    <% end %>
+  <% end %>
+<% end %>

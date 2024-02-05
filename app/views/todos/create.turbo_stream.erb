@@ -1,0 +1,13 @@
+<%= turbo_stream.append "todos" do %>
+  <%= render partial: "todo", locals: { todo: } %>
+<% end %>
+
+<%= turbo_stream.replace "new_todo" do %>
+  <%= render partial: "form", locals: { todo: Todo.new } %>
+<% end %>
+
+<%= turbo_stream.replace "progress" do %>
+  <%= render partial: "progress", locals: { todos: Todo.all } %>
+<% end %>
+
+<!-- <%= turbo_stream.append "flash", partial: "layouts/notifications" %> -->

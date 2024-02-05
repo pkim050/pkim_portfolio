@@ -1,0 +1,5 @@
+<%= turbo_stream.remove "todo-#{id}" %>
+
+<%= turbo_stream.replace "progress" do %>
+  <%= render partial: "progress", locals: { todos: Todo.all } %>
+<% end %>
