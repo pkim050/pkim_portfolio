@@ -1,0 +1,14 @@
+<%= turbo_stream.replace "todo-title-#{todo.id}" do %>
+  <%= turbo_frame_tag "edit_todo_#{todo.id}" do %>
+    <%= simple_form_for(todo) do |f| %>
+      <% if todo.errors.any? %>
+        <% flash.now[:error] = todo.errors.full_messages %>
+        <% todo.errors.full_messages.each do |error| %>
+          <strong class="text-red-500 flex justify-center items-center"><%= error %></strong>
+        <% end %>
+        <br />
+      <% end %>
+      <%= f.input :title, label: false, error: false %>
+    <% end %>
+  <% end %>
+<% end %>
