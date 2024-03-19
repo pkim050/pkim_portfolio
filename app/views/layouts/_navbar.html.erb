@@ -38,10 +38,18 @@
         </svg>
       </li>
       <li>
-        <a class="text-sm text-[#bf04ff] hover:text-pink-300" href="/pKimResume.pdf" target="_blank" rel="noopener">
+        <a class="text-sm text-[#bf04ff] hover:text-pink-300" href=<%= Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
           Resume
         </a>
       </li>
+      <% if can? :create, BlogPost %>
+        <li class="text-[#bf04ff]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+          </svg>
+        </li>
+        <li><a class="text-sm text-[#bf04ff] hover:text-pink-300" href="/upload_resume">Upload Resume</a></li>
+      <% end %>
     </ul>
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_registration_path, class: "hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-[#bf04ff] hover:bg-pink-300 text-sm text-black font-bold rounded-xl transition duration-200" %>
@@ -83,10 +91,15 @@
             </a>
           </li>
           <li class="mb-1">
-            <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href="/pKimResume.pdf" target="_blank" rel="noopener">
+            <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href=<%= Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
               Resume
             </a>
           </li>
+          <% if can? :create, BlogPost %>
+            <li class="mb-1">
+              <%= link_to "Upload Resume", upload_resume_path, class: "block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" %>
+            </li>
+          <% end %>
         </ul>
       </div>
       <div class="mt-auto">

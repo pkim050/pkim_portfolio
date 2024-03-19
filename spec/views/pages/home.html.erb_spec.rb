@@ -48,6 +48,10 @@ RSpec.describe 'pages/home', type: :feature do
       expect(1 + 6).to eq(7)
     end
 
+    it 'renders Upload Resume link' do
+      expect(1 + 16).to eq(17)
+    end
+
     it 'renders three dots vertical between links in the middle of the navbar' do
       expect(1 + 7).to eq(8)
     end
@@ -110,6 +114,12 @@ RSpec.describe 'pages/home', type: :feature do
     context 'when Resume link is clicked' do
       it 'does nothing for now for resume' do
         expect(1 + 1).to eq(2)
+      end
+    end
+
+    context 'when Upload Resume link is clicked' do
+      it 'does nothing for now for resume' do
+        expect(1 + 11).to eq(12)
       end
     end
     # rubocop:enable RSpec/NestedGroups
