@@ -1,0 +1,160 @@
+<div class="flex justify-between p-8">
+  <div class="w-full">
+    <h1 class="text-4xl font-bold text-center">Patch Notes v8.4.0</h1>
+    <br />
+
+    <h4 class="text-xl font-bold">March 18, 2024 ·
+      <%= distance_of_time_in_words_to_now(Date.new(2024, 3, 18).in_time_zone('Pacific Time (US & Canada)')) %> ago
+    </h4>
+    <p><em>by: Patrick Kim</em></p>
+    <br />
+
+    <p class="border-b-2 border-black">
+      Implemented upload functionality.
+    </p>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Implementation</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p>
+        <em>
+          Resume can now be uploaded after making any changes.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Resume</strong></li>
+      <br />
+
+      <p><em>I was going to simply replace the file, but I asked myself, why not just make it dynamic?</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Re-stylized the resume.</li>
+        <li>Refactored contact information, some bullet points, summary, and education.</li>
+        <li>
+          Added GitHub and LinkedIn links in contact information, professional website after work experience and skills.
+        </li>
+        <li>Implemented a page for file upload and admins are currently the only users that can access it.</li>
+        <li>Uploaded files will be in the public folder.</li>
+        <li>If the file is not pdf, the file will not be uploaded, with an error message.</li>
+        <li>
+          If the file is a pdf but does not have the word 'resume', the file will be uploaded but it will not be used as
+          the new resume. This process can change but for now, this just makes the file an unused file.
+        </li>
+        <li>If the file name has the word 'resume', previous resume file that exists will be deleted.</li>
+        <li>If the file name has the word 'resume', the upload will be sucessful with a successful message.</li>
+        <li>
+          After successfully uploading a resume pdf file, the resume link from the navigation bar, both regular and
+          hamburger menu, will direct the user to the new resume pdf.
+        </li>
+        <li>If a file was not loaded and the upload button was clicked, the page will simply refresh.</li>
+      </ul>
+    </ul>
+    <br />
+
+    <div class="flex justify-items-start">
+      <%= image_tag "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAA2CAYAAACP8mT1AAAAAXNSR0IArs4c6QAAAnlJREFUeF7t2VFOwzAMBmB2Fi60K3AvJB44wLgQZwF1UqZSkvi3/Tt2pfFK59rfHCftLu+ft5+X5x8kcHliQU73i5Zhvb5d7zf8/vjCswOujIrbu/USrFZQS4AFFhV39B2FYx0LYoFFxZ01cyjWqCDvcpzF9cZOwZIKshaFxLXGlkZkSGehBWmL0sTVxpagQnZDaZb0/o8MfOlz0n0RDOkaamehCUuFH5NGr0fvL6GE74baRD0As07U5qGBo3SWNUEJTPr/qFBrPhKcG8ub2AjECtUK9uZFP8GzEkJ2OWQTQGadZ5c0dxYLSuoET3HbZ5l5mrCYCey7oXpcNdbqgrydJXWuZnmrsDKgWA/ejCUJY2VCVQGDsFZC7ZeF9/jAPoeJWFlQs1mjmTNMsClWNlQ1sCFWFahKYF2salBVwP5hVYWqAPYHqzpUNtgDayUU41Secaw4JVbUFzs65bejStoytHZXFtSWb+qA14JlQnWxGA+czFMz862BJq/eU0KJQ6nUYdkd1ZDLPO6MwKpADZdhlbeXlaAgrKwZVg0KxsoA6w3jqFczaFzxfVbmktzfGy1otONJB87Z56AB3wsQtTxmvx1WgFItw8wO82KxniNVyzASTPpV2grGgjJ3FvtULUG1+2nBmFBuLMYuOSrIOxvZUBQsD5hUkBVMiovsfL1rzDPrGExbGFpQVFwLGA1L02EolHY2auNqwahYCJi1IKnDrHE1YHSsGZj3EQbdNbf7aHdOBC0ECwWzFISAWeKmYklgnoKiH41GcGGdNRvOHqjouLMOC8c6dhgDqgfGjJvWWfvCIgralmRE3NBDKTIgz37NkmV4dqSW/y/eOIpTgmaEQwAAAABJRU5ErkJggg==" %>
+      <h2 class="text-4xl font-bold m-2">Updates</h2>
+    </div>
+    <br />
+
+    <ul class="border border-black p-4">
+      <p>
+        <em>
+          Dynamically update existing codebase to take account for upload functionality.
+        </em>
+      </p>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Navbar</strong></li>
+      <br />
+
+      <p><em>Dynamically change URL.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>
+          Instead of hard coding the file name, it now reads the uploaded pdf file name dynamically in both regular and
+          hamburger menu.
+        </li>
+        <li>Added Upload Resume in both the regular and hamburger menu.</li>
+        <li>Logged in admin user are the only users who can see Upload Resume.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Home Page</strong></li>
+      <br />
+
+      <p><em>List updated.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added and crossed out bullet point regarding upload functionality.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>RSpec</strong></li>
+      <br />
+
+      <p><em>Added testing for existing test files to include the upload functionality.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added testing for routes.</li>
+        <li>Added testing for upload resume page.</li>
+        <li>Added testing for navbar.</li>
+        <li>Added testing for page controller.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Patch Notes</strong></li>
+      <br />
+
+      <p><em>v8.4.0</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Added v8.4.0 page.</li>
+      </ul>
+      <br />
+
+      <p class="border-b-2 border-black"></p>
+      <br />
+
+      <li><strong>Generality</strong></li>
+      <br />
+
+      <p><em>Rubocop error fix.</em></p>
+      <br />
+
+      <ul class="list-disc list-inside">
+        <li>Updated capistrano code to remediate rubocop error.</li>
+      </ul>
+    </ul>
+  </div>
+
+  <div>
+    <%= render partial: 'versions' %>
+  </div>
+</div>
