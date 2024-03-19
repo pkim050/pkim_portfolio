@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'projects', to: 'pages#projects'
 
+  get 'upload_resume', to: 'pages#upload_resume_page'
+
+  post 'upload_resume', to: 'pages#upload_resume'
+
   resources :blog_posts do
     resources :blog_comments
   end

@@ -1,0 +1,9 @@
+Upload File:
+<%= form_for :file_upload, :html => {:multipart => true} do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit "Upload" %>
+<% end %>
+
+<br />
+
+<%= turbo_stream.prepend "flash", partial: "layouts/notifications" %>

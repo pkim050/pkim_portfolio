@@ -7,6 +7,8 @@ RSpec.describe PagesController do
     it { is_expected.to route(:get, '/').to(action: :home) }
     it { is_expected.to route(:get, '/about').to(action: :about) }
     it { is_expected.to route(:get, '/projects').to(action: :projects) }
+    it { is_expected.to route(:get, '/upload_resume').to(action: :upload_resume_page) }
+    it { is_expected.to route(:post, '/upload_resume').to(action: :upload_resume) }
   end
 
   describe 'GET #home' do
@@ -50,4 +52,28 @@ RSpec.describe PagesController do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'GET #upload_resume' do
+    before do
+      get :upload_resume_page
+    end
+
+    it 'renders Upload Resume page' do
+      expect(response).to render_template(:upload_resume_page)
+    end
+
+    it 'returns 200 status code' do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  # describe 'POST #upload_resume' do
+  #   before do
+  #     post :upload_resume
+  #   end
+
+  #   it 'returns 302 status code' do
+  #     expect(response).to have_http_status(:found)
+  #   end
+  # end
 end
