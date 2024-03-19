@@ -38,7 +38,7 @@
         </svg>
       </li>
       <li>
-        <a class="text-sm text-[#bf04ff] hover:text-pink-300" href=<%= Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
+        <a class="text-sm text-[#bf04ff] hover:text-pink-300" href=<%= '/' + Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
           Resume
         </a>
       </li>
@@ -91,7 +91,7 @@
             </a>
           </li>
           <li class="mb-1">
-            <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href=<%= Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
+            <a class="block p-4 text-sm font-semibold text-[#bf04ff] hover:text-black hover:bg-pink-300 rounded" href=<%= '/' + Rails.public_path.children.select { |file| file.extname == '.pdf' && file.basename.to_s.include?('resume') }.first.basename.to_s %> target="_blank" rel="noopener">
               Resume
             </a>
           </li>
